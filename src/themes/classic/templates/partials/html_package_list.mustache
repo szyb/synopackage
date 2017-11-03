@@ -1,0 +1,17 @@
+            {{#packages}}
+                <li class="package">
+                    <div class="spk-icon"><img src='{{thumbnail}}' width="72" height="72" alt='thumbnail'/></div>
+                    <div class="spk-desc">
+                        <span class="spk-title">{{name}}</span>{{#isBeta}}<img src="images/beta.png" alt="beta" />{{/isBeta}}
+                        <br>
+                        <span class="dsm-version">Package version:{{version}}</span>
+                        <br>
+                        <a href="{{downloadLink}}">download</a>
+                        <p>{{description}}</p>
+                    </div>
+                </li>
+            {{/packages}}
+            {{^packages}}
+                {{#errorMessage}}<li><div class='error'>{{errorMessage}}</div></li>{{/errorMessage}}
+                {{^errorMessage}}<li><div class="search-result-not-found">No results</div></li>{{/errorMessage}}                
+            {{/packages}}

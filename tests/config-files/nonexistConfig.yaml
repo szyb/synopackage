@@ -1,0 +1,35 @@
+site:
+    testingOnly: false
+    name: DSM Package Search
+    theme: classic
+    latestVersion: 6.1.3-15152
+    defaultModel: DS216j
+    websiteVersion: 0.8.4
+    useCache: true
+    #in strtotime format
+    cacheExpiration: -1 day
+    cachePngExpiration: -30 days
+    logExecutionTime: true
+    logSearchQueries: true
+    #curl options:
+    #in seconds
+    curlTimeout: 15
+    #leave empty if no proxy
+    curlProxy: 
+    #google analytics code (leave empty if not used)
+    googleStatisticsCode: 
+    
+# ALL PATHS MUST BE RELATIVE TO THE ROOT
+# DIRECTORY (where the index.php is located)
+# INCLUDE TRAILING SLASH FOR DIRECTORIES!
+paths:
+    cache: tests/cache/
+    sourceUrls: tests/config-files/nonexist.yaml
+    themes: themes/
+    models: tests/config-files/nonexist.yaml
+    versions: tests/config-files/nonexist.yaml
+    changelog: tests/config-files/nonexist.yaml
+    news: tests/config-files/nonexist.yaml
+    faq: tests/config-files/nonexist.yaml
+    monologDebug: tests/logs/debug.log
+    monologError: tests/logs/error.log

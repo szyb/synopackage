@@ -1,0 +1,36 @@
+site:
+    testingOnly: false
+    name: DSM Package Search
+    theme: classic
+    latestVersion: 6.1.3-15152
+    defaultModel: DS216j
+    websiteVersion: 0.8.4
+    useCache: true
+    #in strtotime format
+    cacheExpiration: -1 day
+    cachePngExpiration: -30 days
+    logExecutionTime: true
+    logSearchQueries: true
+    #curl options:
+    #in seconds
+    curlTimeout: 15
+    #leave empty if no proxy
+    curlProxy: 127.0.0.1:4480
+    #google analytics code (leave empty if not used)
+    googleStatisticsCode: 
+    bad key
+    
+# ALL PATHS MUST BE RELATIVE TO THE ROOT
+# DIRECTORY (where the index.php is located)
+# INCLUDE TRAILING SLASH FOR DIRECTORIES!
+paths:
+    cache: cache/
+    sourceUrls: conf/source_urls.yaml
+    themes: themes/
+    models: conf/synology_models.yaml
+    versions: conf/DSMVersions.yaml
+    changelog: conf/changelog.yaml
+    news: conf/news.yaml
+    faq: conf/faq.yaml
+    monologDebug: logs/debug.log
+    monologError: logs/error.log

@@ -1,0 +1,30 @@
+{{> html_head }}
+   <li>
+    <div id="supported-urls"><span class="url-label">Supported third party sources:</span>
+    <div class="table">
+   {{#sourceList}}
+                
+                    <div class="table-row">
+                        <div class="table-cell">{{url}}</div>
+                        <div class="table-cell"><a href="?browseSource={{name}}">Show packages</a></div>
+                        <div class="table-cell"><a href="{{www}}" target="_blank">Visit website</a></div>
+                    </div>
+                
+   {{/sourceList}}
+   </div>
+
+    </div>
+    <div id="unsupported-urls">
+        <span class="url-label">Unsupported third party sources:</span> 
+        <span class="url-label-info">The list below is unsupported by this website, however you can still visit their website</span>
+        <div class="table">
+   {{#unsupportedSourceList}}
+                <div class="table-row">
+                    <div class="table-cell">{{url}}</div>                        
+                    <div class="table-cell"><a href="{{www}}" target="_blank">Visit website</a></div>
+                </div>
+   {{/unsupportedSourceList}}
+        </div>
+    </div>
+   </li>
+{{> html_tail }}

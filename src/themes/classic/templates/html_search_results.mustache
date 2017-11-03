@@ -1,0 +1,21 @@
+{{> html_head }}
+<li>
+    {{> html_search_panel}}
+    {{#isCallBack}}
+        <ul>
+            {{> html_parameters}}
+        </ul>
+        {{/isCallBack}}
+    <ul>    
+        {{#results}}
+        <li>
+            <div class="search-result-url"><a href="?browseSource={{sourceName}}"> {{url}}</a> ({{packagesFoundCount}})</div>
+            <ul>
+            {{> html_package_list }}
+            </ul>
+        </li>
+        {{/results}}
+        
+    </ul>
+</li>
+{{> html_tail }}

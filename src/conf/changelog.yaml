@@ -1,0 +1,45 @@
+version 0.9.2:
+  version: 0.9.2
+  date: 03.11.2017
+  improved:
+    - optimize downloading png files from source servers
+    - browse source by name instead of url (in GET query)
+    - add title for every page
+    - better handling with bad requests
+  removed sources:
+    - removed cytec.us due to poor availability of the server
+
+version 0.9.1:
+  version: 0.9.1
+  date: 01.11.2017
+  new:
+    - "add support for new models: DS418, DS418j, DS218+, DS418play, DS718+, DS918+, DS3018xs"
+
+version 0.9.0:
+  version: 0.9.0
+  date: 26.10.2017
+  new:
+    - First public release at synopackage.com
+    - "basic features: search and browse package source for DSM versions"
+
+  new sources:
+    - http://packages.synocommunity.com
+    - https://www.cphub.net/
+    - http://packages.pcloadletter.co.uk
+    - http://www.hildinger.us/sspks/
+    - http://cytec.us/spk/
+    - http://spk.unzureichende.info/
+    - https://packages.page81.net/
+    - http://spk.naefmarco.ch/spkrepo/packages/
+    - http://synology.acmenet.ru/
+    - https://synology.emby.media/
+    - https://synology.emby.media/
+    - http://jaspr.kastner.wtf/
+    - http://packages.jdel.org/
+    - http://spk.nas-mirror.de/spkrepo/packages
+    - http://syno.dierkse.nl
+    - http://www.brigittehelsen.be/plexconnect/
+    - http://synology.nimloth.pl/
+    - http://spk.diablos-netzwerk.de
+    - https://synology.cambier.org/
+    - http://spk.synologyitalia.com/

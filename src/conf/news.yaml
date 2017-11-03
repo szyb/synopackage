@@ -1,0 +1,12 @@
+- message:
+   title: Synopackage.com is online.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     This website is providing search engine of compiled packages for Synology's DSM System. 
+     You can search across known third-party package servers. The list of supported sources 
+     you can find on <a href='?sourceList=1'>browse sources</a> list. The search is available
+     on <a href='?search=1'>this</a> page. Remember to provide your device and DSM version. 
+     It's very important, because some packages are not available for all devices and versions.
+     <br /><br />
+     Have fun!

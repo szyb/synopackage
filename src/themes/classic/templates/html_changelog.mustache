@@ -1,0 +1,60 @@
+{{> html_head }}
+   <li>
+    {{#warningVersionMismatch}}
+    <div class="error"><span>Version mismatch with config file</span></div>
+    {{/warningVersionMismatch}}
+    <div id="changelogs">
+    {{#changelogs}}
+        <div class="changelog">
+            <div class="version">Version: {{version}}</div>
+            <div class="date">Date: {{releaseDate}}</div>
+
+            {{#categoryNew.0}}
+            <div class="category">new:</div>
+            <ul>
+                {{#categoryNew}}
+                <li>* {{.}}</li>
+                {{/categoryNew}}
+            </ul>
+            {{/categoryNew.0}}
+
+            {{#categoryFixed.0}}
+            <div class="category">fixed:</div>
+            <ul>
+                {{#categoryFixed}}
+                <li>* {{.}}</li>
+                {{/categoryFixed}}
+            </ul>
+            {{/categoryFixed.0}}
+
+            {{#categoryImproved.0}}
+            <div class="category">improved:</div>
+            <ul>
+                {{#categoryImproved}}
+                <li>* {{.}}</li>
+                {{/categoryImproved}}
+            </ul>
+            {{/categoryImproved.0}}
+
+            {{#categoryNewSources.0}}
+            <div class="category">new sources:</div>
+            <ul>
+                {{#categoryNewSources}}
+                <li>* {{.}}</li>
+                {{/categoryNewSources}}
+            </ul>
+            {{/categoryNewSources.0}}
+
+            {{#categoryRemovedSources.0}}
+            <div class="category">removed sources:</div>
+            <ul>
+                {{#categoryRemovedSources}}
+                <li>* {{.}}</li>
+                {{/categoryRemovedSources}}
+            </ul>
+            {{/categoryRemovedSources.0}}
+        </div>
+    {{/changelogs}}
+    </div>
+   </li>
+{{> html_tail }}

@@ -1,0 +1,29 @@
+    
+    <ul>
+    <li>
+        <div class="option-label"><span>DSM version:</span></div>
+        <div class="option-filter">
+            <select id="version" onchange="setCookie('DSMVersion', this.value, 365);" >
+            {{#DSMVersionList}}
+                <option value="{{version}}" {{#isSelected}}selected{{/isSelected}}>{{version}}</option>
+            {{/DSMVersionList}}
+            </select>
+        </div>
+    </li>
+    <li>
+        <div class="option-label padding-left"><span>Model:</span></div>
+        <div class="option-filter">
+            <select id="model" onchange="setCookie('ModelName', this.value, 365);">
+            {{#ModelList}}
+                <option value="{{name}}" {{#isSelected}}selected{{/isSelected}}>{{name}} ({{arch}})</option>
+            {{/ModelList}}
+            </select>
+        </div>
+    </li>
+    <li>
+        <div class="option-filter">
+            <label><input type="checkbox" name="isBeta" {{#isBetaChecked}} checked="checked"{{/isBetaChecked}} onchange="setCookie('isBeta', this.checked, 365)" />Include beta</label>
+        </div>
+    </li>
+    
+    </ul>

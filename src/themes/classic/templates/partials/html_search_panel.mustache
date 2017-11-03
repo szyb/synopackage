@@ -1,0 +1,41 @@
+    <form action="index.php" method="get" onsubmit="return setCookie('DSMVersion', this.version.value, 365) && setCookie('ModelName', this.model.value, 365) && setCookie('isBeta', this.isBeta.checked, 365);">
+    <input type="hidden" name="search" value="1" />
+    <div id="search-panel">
+    <ul>
+    <li>
+        <div class="option-label"><span>DSM version:</span></div>
+        <div class="option-filter">
+            <select id="version" name="version">
+            {{#DSMVersionList}}
+                <option value="{{version}}" {{#isSelected}}selected{{/isSelected}}>{{version}}</option>
+            {{/DSMVersionList}}
+            </select>
+        </div>
+    </li>
+    <li>
+        <div class="option-label padding-left"><span>Model:</span></div>
+        <div class="option-filter">
+            <select id="model" name="model">
+            {{#ModelList}}
+                <option value="{{name}}" {{#isSelected}}selected{{/isSelected}}>{{name}} ({{arch}})</option>
+            {{/ModelList}}
+            </select>
+        </div>
+    </li>
+    <li>
+        <div class="option-label padding-left"><span>Keyword:</span></div>
+        <div class="option-filter">
+            <input type="text" name="keyword" value="{{keyword}}" />
+        </div>
+    </li>
+    <li>
+        <div class="option-filter">
+            <label><input type="checkbox" name="isBeta" {{#isBetaFilter}} checked="checked" {{/isBetaFilter}} />Include beta</label>
+        </div>
+    </li>
+    <li>
+        <input type="submit" value="Search"  />
+    </li>
+    </ul>
+    </div>
+    </form>

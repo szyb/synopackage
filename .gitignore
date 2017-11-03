@@ -1,0 +1,11 @@
+/composer.phar
+/cache/
+/src/cache/*.nfo
+/src/cache/*.png
+/src/cache/*.cache
+/src/vendor/*
+*.log
+/src/clover.xml
+/src/clover/*
+/tests/cache/*.png
+/tests/cache/*.cache

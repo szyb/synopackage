@@ -1,0 +1,11 @@
+
+<FilesMatch "\.(jpg|png|css|js|ico)$">
+Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
+
+Options All -Indexes
+
+<FilesMatch "\.(log|cache|yaml|yml|json|mustache)$">
+Order deny,allow
+deny from all
+</FilesMatch>

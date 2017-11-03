@@ -1,0 +1,45 @@
+- faq:
+  name: TargetUsers
+  question: Who is this site for?
+  answer: |
+    This page is targeted to Synology's NAS device users. In short: Synology provides possibility to 
+    add third-party package source to their Package Center. There are many servers that provides 
+    additional packages to Synology's system, however they are distributed and links can be found
+    mostly on community forums. We collect server URL's in one place and provides to you search engine, 
+    so you can easily find the package you look for. When you want to add it to your device, 
+    you just need to add source to your system and install the package from it.
+
+- faq:
+  name: HowItWorks
+  question: How the search works?
+  answer: |
+    The website is pretending to be a Synology device and querying known third-party package servers 
+    for the list of all packages to specific architecture, DSM version etc. 
+    The result (in JSON format) is analysed and we filter out packages that does not meet requirements given by the user 
+    (i.e. keyword). The keyword is searched in package name and description.
+
+- faq:
+  name: SourceUnsupported
+  question: Why source http://xyz.com is in unsupported section?
+  answer: |
+    There could be many reasons. Each package server has it's own implementation and may work differently.
+    Synology's Package Center is handling with them well due to good error correction (such as ignoring invalid 
+    characters, ignoring additional content, etc.). We are verifying new sources and when, for some reason, 
+    it does not work, then we put it into unsupported section. We are trying to solve the problem on our side, 
+    however sometimes it is not possible or it is time consuming. We also try to contact with the server owner
+    and asking them for help.
+
+- faq:
+  name: NotOnTheList
+  question: Why source http://xyz.com is not on the list?
+  answer: |
+    Please give us the URL and we will verify the source. See contact page.
+
+- faq:
+  name: WorkingSlow
+  question: Why search is working slow sometimes?
+  answer: |
+    It might work slow for the first query. The website is querying servers for the packages one after another 
+    and this may take a while. However, due to caching results, next searches should work much faster. 
+    Cache is expiring after 24h, so after that time website will query servers once again. We are still working 
+    on the performance. Hopefully it will work better soon.

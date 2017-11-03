@@ -1,0 +1,92 @@
+urls:
+  - source:
+      name: synocommunity
+      url: http://packages.synocommunity.com
+      www: http://synocommunity.com
+  - source:
+      name: cphub
+      url: https://www.cphub.net/
+      www: https://www.cphub.net/
+  - source:
+      name: pcloadletter
+      url: http://packages.pcloadletter.co.uk
+      www: http://packages.pcloadletter.co.uk
+  - source:
+      name: hildinger
+      url: http://www.hildinger.us/sspks/
+      www: http://www.hildinger.us/sspks/
+  - source:
+      name: unzureichende
+      url: http://spk.unzureichende.info/
+      www: http://spk.unzureichende.info/
+  - source:
+      name: page81
+      url: https://packages.page81.net/
+      www: https://packages.page81.net/
+  - source:
+      name: naefmarco
+      url: http://spk.naefmarco.ch/spkrepo/packages/
+      www: http://spk.naefmarco.ch/spkrepo/packages/
+  - source:
+      name: acmenet
+      url: http://synology.acmenet.ru/
+      www: http://synology.acmenet.ru/
+  - source:
+      name: emby
+      url: https://synology.emby.media/
+      www: https://emby.media/community/index.php?/forum/153-synology/
+  - source:
+      name: kastner
+      url: http://jaspr.kastner.wtf/
+      www: http://jaspr.kastner.wtf/
+  - source:
+      name: jdel
+      url: http://packages.jdel.org/
+      www: http://packages.jdel.org/
+  - source:
+      name: nas-mirror
+      url: http://spk.nas-mirror.de/spkrepo/packages
+      www: http://spk.nas-mirror.de/spkrepo/packages
+  - source:
+      name: dierkse
+      url: http://syno.dierkse.nl
+      www: http://syno.dierkse.nl
+  - source:
+      name: brigittehelsen
+      url: http://www.brigittehelsen.be/plexconnect/
+      www: http://www.brigittehelsen.be/plexconnect/
+  - source:
+      name: nimoloth
+      url: http://synology.nimloth.pl/
+      www: http://synology.nimloth.pl/
+  - source:
+      name: diablos-netzwerk
+      url: http://spk.diablos-netzwerk.de
+      www: http://spk.diablos-netzwerk.de
+  - source:
+      name: cambier
+      url: https://synology.cambier.org/
+      www: https://synology.cambier.org/
+  - source:
+      name: synologyitalia
+      url: http://spk.synologyitalia.com/
+      www: http://spk.synologyitalia.com/
+      customUserAgent: '"Mozilla/4.0 (compatible; MSIE 6.1; Windows XP) Synology"'
+
+
+unsupportedUrls:
+
+
+- source:
+    name: sysco
+    url: http://synology.sysco.ch
+    www: http://synology.sysco.ch
+- source:
+    name: cytec
+    url: http://cytec.us/spk/
+    www: http://cytec.us/spk/
+
+
+
+
+ 

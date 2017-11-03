@@ -1,0 +1,14 @@
+{{> html_head }}
+   <li>
+    <div id="news">
+    {{#news}}
+        <div class="news">
+            <div class="icon"><img src='{{themeUrl}}images/news.png' width="72" height="72" alt='thumbnail'/></div>
+            <div class="title">{{title}}</div>
+            <div class="date">{{date}}</div>
+            <div class="body">{{{body}}}</div>
+        </div>
+    {{/news}}    
+    </div>
+   </li>
+{{> html_tail }}

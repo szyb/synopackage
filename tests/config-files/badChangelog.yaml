@@ -1,0 +1,167 @@
+version 0.8.5:
+  version: 0.8.5
+  date: 01.10.2017  
+  this line is wrong  
+  improved:
+    - minor enhancements
+
+
+
+version 0.8.4:
+  version: 0.8.4
+  date: 11.09.2017
+  new:
+    - online public tests
+  improved:
+    - W3C validation
+    - other minor changes
+
+version 0.8.3:
+  version: 0.8.3
+  date: 10.09.2017
+  new:
+    - add license information
+  improved:
+    - error logging
+    - updated thrid-party libraries
+
+version 0.8.2:
+  version: 0.8.2
+  date: 03.09.2017
+  improved:
+    - search parameters validation
+
+version 0.8.1:
+  version: 0.8.1
+  date: 29.08.2017
+  new sources:
+    - http://spk.synologyitalia.com/
+
+version 0.8.0:
+  version: 0.8.0
+  date: 28.08.2017
+  new:
+    - FAQ page
+  improved:
+    - contact page
+
+version 0.7.2:
+  version: 0.7.2
+  date: 27.08.2017
+  new:
+    - direct download link to SPK file
+    - favicon
+    - message "we use cookies [...]"
+
+version 0.7.1:
+  version: 0.7.1
+  date: 22.08.2017
+  improved:
+    - caching PNG files
+  fixed: 
+    - removed additional "Model" label on source list page
+  new sources:
+    - http://spk.diablos-netzwerk.de
+    - https://synology.cambier.org/
+
+
+version 0.7.0:
+  version: 0.7.0
+  date: 20.08.2017
+  improved:
+    - news page and contact page
+
+version 0.6.4:
+  version: 0.6.4
+  date: 20.08.2017
+  improved:
+    - caching css/js files and security
+  new sources:
+    - http://synology.nimloth.pl/ (thanks to Nimloth - the author)
+
+
+version 0.6.3:
+  version: 0.6.3
+  date: 18.08.2017
+  fixed:
+    - browse source - fix setting up CPU architecture after selecting certain model (containing "+" sign)
+
+version 0.6.2:
+  version: 0.6.2
+  date: 18.08.2017
+  new:
+    - add some new sources (unsupported as well - to be verified)
+  new sources:
+    - http://jaspr.kastner.wtf/
+    - http://packages.jdel.org/
+    - http://spk.nas-mirror.de/spkrepo/packages
+    - http://syno.dierkse.nl
+    - http://www.brigittehelsen.be/plexconnect/
+ 
+version 0.6.1:
+  version: 0.6.1
+  date: 18.08.2017
+  new:
+    - add timeout for query source server, so the search will work even if server is not responding
+    - add beta image in title when website is configured as testing only mode
+  fixed:
+    - fix parsing result from server when it is bad encoded
+  improved:
+    - change menu options (rephrase)
+    - change css styles
+  new sources:
+    - https://synology.emby.media/
+  removed sources:
+    - http://repo.synozwave.com/ (seems to be death)
+
+version 0.6.0:
+  version: 0.6.0
+  date: 16.08.2017
+  new:
+    - search in beta channel is now available
+  fixed:
+    - caching empty results
+  removed sources:
+    - https://synology.emby.media/ (moved to unsupported due to 404 error response)
+
+version 0.5.1:
+  version: 0.5.1
+  date: 14.08.2017
+  new:
+    - add basic error logging and execution times
+
+version 0.5.0:
+  version: 0.5.0
+  date: 14.08.2017
+  new:
+    - cache results from third party servers (improved search and browsing sources)
+    - changelog page
+  improved:
+    - search page - sources with any result shown first, then other - with no results
+    - search page - added keyword for results summary
+
+version 0.4.1:
+  version: 0.4.1
+  date: 14.08.2017
+  fixed:
+    - search page - fixed setting user model after search
+
+version 0.4.0:
+  version: 0.4.0
+  date: 08.08.2017
+  new:
+    - first release for beta tests
+    - basic search functionality
+    - list of third-party package sources
+  new sources:
+    - http://packages.synocommunity.com
+    - https://www.cphub.net/
+    - http://packages.pcloadletter.co.uk
+    - http://www.hildinger.us/sspks/
+    - https://synology.emby.media/
+    - http://cytec.us/spk/
+    - http://spk.unzureichende.info/
+    - http://repo.synozwave.com/
+    - https://packages.page81.net/
+    - http://spk.naefmarco.ch/spkrepo/packages/
+    - http://synology.acmenet.ru/

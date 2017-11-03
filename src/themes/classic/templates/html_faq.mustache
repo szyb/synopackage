@@ -1,0 +1,13 @@
+{{> html_head }}
+   <li>
+    <div id="faq">
+    {{#faq}}        
+        <div class="faq">
+            <div class="icon"><img src='{{themeUrl}}images/folder.png' width="72" height="72" alt='thumbnail'/></div>
+            <div id="{{name}}" class="question">{{question}}</div>
+            <div class="answer">{{{answer}}}</div>
+        </div>
+    {{/faq}}    
+    </div>
+   </li>
+{{> html_tail }}
