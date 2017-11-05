@@ -3,7 +3,8 @@
 
 ### What is this repository for? ###
 
-This is a PHP web-based application to search package for Synology DSM system from a third-party sources. This website contains a list of known package sources and allow user to find package basing on them DSM version and model.
+This is source code for page http://search.synopackage.com. It is a search engine for third-party packages dedicated to
+Synology's DSM system. 
 
 ### How do I get set up? ###
 * Installation
@@ -23,12 +24,13 @@ This is a PHP web-based application to search package for Synology DSM system fr
 
 
 * Database configuration
-    * This is database less application
+    * This is database-less application
 * How to run tests
     * call "phpunit" in main folder
+    * with html code coverage: "phpunit --coverage-html src/clover" (or other folder)
 * Deployment instructions
-    * Copy all files from "src" folder except "test" in vendor folders
-    * Create "cache" folder and make sure that it is writeable
+    * Copy all files from "src" folder www root folder or www sub-folder
+    * Create "cache" folder and make sure it is writeable
 
 ### Contribution guidelines ###
 
@@ -36,7 +38,7 @@ This is a PHP web-based application to search package for Synology DSM system fr
     * create "cache" folder in root directory (if not exists already) - it's mandatory for tests
     * run tests before develop feature
     * develop feature and add new tests
-    * run tests after
+    * run tests after development
     * if tests passed then commit
 * Code review
     * I'm a single developer, so there is no code review (for now)
