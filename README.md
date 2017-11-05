@@ -3,7 +3,7 @@
 
 ### What is this repository for? ###
 
-This is source code for page http://search.synopackage.com. It is a search engine for third-party packages dedicated to
+This is source code for page https://search.synopackage.com. It is a search engine for third-party packages dedicated to
 Synology's DSM system. 
 
 ### How do I get set up? ###
