@@ -1,3 +1,14 @@
+version 0.9.3:
+  version: 0.9.3
+  date: 08.11.2017
+  new:
+    - add version 6.1.4-15217
+    - "add models: DS218j, DS218Play, DS118"
+    - add title for every page
+    - better handling with bad requests
+  new sources:
+    - http://cytec.us/spk/ back to supported sources
+    
 version 0.9.2:
   version: 0.9.2
   date: 03.11.2017
