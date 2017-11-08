@@ -23,6 +23,7 @@ armada38x:
         - DS416slim
         - RS217
         - RS816
+        - DS218j
 
 armadaxp:
     armadaxp:
@@ -87,6 +88,8 @@ armv8:
     rtd1296:
         - DS418
         - DS418j
+        - DS218Play
+        - DS118
 
 comcerto2k:
     comcerto2k:
