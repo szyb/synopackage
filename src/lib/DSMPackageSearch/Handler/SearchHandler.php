@@ -79,7 +79,6 @@ class SearchHandler extends AbstractHandler
             && array_key_exists('keyword', $_GET)
             && !empty(trim($_GET['version']))
             && !empty(trim($_GET['model']))
-            && !empty(trim($_GET['keyword']))
             )
         {
             // $version = $_GET['version'];

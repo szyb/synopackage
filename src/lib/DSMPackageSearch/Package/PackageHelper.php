@@ -73,7 +73,8 @@ class PackageHelper
                 $searchResult->url = $source->url;
                 $errorMessage = null;
                 $packageList = $this->GetPackages($source->url, $arch, $model, $major, $minor, $build, $isBeta, $source->customUserAgent, $errorMessage);
-                $packageList = $this->FilterResults($packageList, $keyword);
+                if (isset($keyword) && $keyword != "" && $keyword != "*")
+                    $packageList = $this->FilterResults($packageList, $keyword);
                 $searchResult->packages = $packageList;
                 $searchResult->packagesFoundCount = count($packageList);
                 $searchResult->urlIndex = $idx;
