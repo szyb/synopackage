@@ -1,3 +1,9 @@
+version 0.9.5:
+  version: 0.9.5
+  date: 13.02.2018
+  new:
+    - Allow wild card (*) search. Empty string is also allowed
+
 version 0.9.4:
   version: 0.9.4
   date: 12.02.2018

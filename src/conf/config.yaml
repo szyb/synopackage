@@ -4,7 +4,7 @@ site:
     theme: classic
     latestVersion: 6.1.5-15254
     defaultModel: DS418play
-    websiteVersion: 0.9.4
+    websiteVersion: 0.9.5
     useCache: true
     #in strtotime format
     cacheExpiration: -1 day
