@@ -67,6 +67,8 @@ class CacheManager
             return;
         
         $fullPath = CacheManager::GetFullPath($cacheFolder, $url, $model, $build, $isBeta);
+
+        self::Rotate($fullPath);
         
         $fh = fopen($fullPath, 'w');
         fwrite($fh, time() . "\n");
@@ -150,6 +152,24 @@ class CacheManager
             return $fullPathForCronMode;
         else
             return $fullPath;
+    }
+
+    public static function Rotate($fullPath)
+    {
+        $file = $fullPath;
+        $numerOfRotations = 1;
+        for($i = 0; $i< $numerOfRotations; $i++)
+        {
+            if (file_exists($file))
+            {
+                $ct = filemtime($file);
+                $ext = time();
+                $diffDays = ($ct - $ext) / 86400;
+                if ($diffDays > 1)
+                    copy($file, $file.".".$i);
+            }
+            $file = $fullPath.".".$i;            
+        }
     }
 
 }
