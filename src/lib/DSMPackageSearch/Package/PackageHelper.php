@@ -206,10 +206,15 @@ class PackageHelper
             {
                 $result = $cachedResult;
             }
-        return $this->parseResponse($result, $requestedSource);
+        return $this->parseResponse($result, $requestedSource, false);
     }
 
-    private function parseResponse($result, $requestedSource)
+    public function GetPackagesFromJsonResult($result)
+    {
+        return $this->parseResponse($result, null, true);
+    }
+
+    private function parseResponse($result, $requestedSource, $ignoreCachingIcons)
     {
         $packageList = array();
         $jsonDecoded = json_decode($result, false);
@@ -255,23 +260,25 @@ class PackageHelper
                 $pkg->isBeta = $p->{'beta'};
             if (isset($p->{'thumbnail'}))
             {
-                $pkg->thumbnail = CacheManager::SaveThumbnailToCache($this->downloadManager, 
-                    $this->config->relativePaths['cache'],
-                    $this->config->paths['cache'], 
-                    $this->config->site['cachePngExpiration'], 
-                    $requestedSource, 
-                    $pkg->name, 
-                    $p->{'thumbnail'}[0]);
+                if ($ignoreCachingIcons == false)
+                    $pkg->thumbnail = CacheManager::SaveThumbnailToCache($this->downloadManager, 
+                        $this->config->relativePaths['cache'],
+                        $this->config->paths['cache'], 
+                        $this->config->site['cachePngExpiration'], 
+                        $requestedSource, 
+                        $pkg->name, 
+                        $p->{'thumbnail'}[0]);
             }
             else if (isset($p->{'icon'}))
             {
-                $pkg->thumbnail = CacheManager::SaveIcoToCache($this->downloadManager, 
-                    $this->config->relativePaths['cache'],
-                    $this->config->paths['cache'], 
-                    $this->config->site['cachePngExpiration'], 
-                    $requestedSource, 
-                    $pkg->name, 
-                    $p->{"icon"});
+                if ($ignoreCachingIcons == false)
+                    $pkg->thumbnail = CacheManager::SaveIcoToCache($this->downloadManager, 
+                        $this->config->relativePaths['cache'],
+                        $this->config->paths['cache'], 
+                        $this->config->site['cachePngExpiration'], 
+                        $requestedSource, 
+                        $pkg->name, 
+                        $p->{"icon"});
             }
 
             $packageList[$idx] = $pkg;

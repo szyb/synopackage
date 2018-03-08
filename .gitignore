@@ -3,9 +3,17 @@
 /src/cache/*.nfo
 /src/cache/*.png
 /src/cache/*.cache
+/src/cache/*.cache0
+/src/cache/*.cache1
+/src/cache/*.cache2
+/src/cache/*.cache3
 /src/vendor/*
 *.log
 /src/clover.xml
 /src/clover/*
 /tests/cache/*.png
 /tests/cache/*.cache
+/tests/cache/*.cache0
+/tests/cache/*.cache1
+/tests/cache/*.cache2
+/tests/cache/*.cache3
