@@ -5,7 +5,7 @@ Header set Cache-Control "public, max-age=3600"
 
 Options All -Indexes
 
-<FilesMatch "\.(log|cache|yaml|yml|json|mustache)$">
+<FilesMatch "\.(log|cache|cache0|cache1|cache2|cache3|yaml|yml|json|mustache)$">
 Order deny,allow
 deny from all
 </FilesMatch>
