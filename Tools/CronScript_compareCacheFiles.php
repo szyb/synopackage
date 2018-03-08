@@ -19,9 +19,76 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\JsonFormatter;
 
-//config:
-// $models = array("DS215j", "DS216j", "VirtualDSM", "DS3617xs", "DS415+", "DS1515+", "DS3018xs");
-// $versionBuilds = array("15152");
+
+function dirToArray($dir) { 
+   
+    $result = array(); 
+ 
+    $cdir = scandir($dir); 
+    foreach ($cdir as $key => $value) 
+    { 
+       if (!in_array($value,array(".",".."))) 
+       { 
+          if (is_dir($dir . DIRECTORY_SEPARATOR . $value)) 
+          { 
+             $result[$value] = dirToArray($dir . DIRECTORY_SEPARATOR . $value); 
+          } 
+          else 
+          { 
+             $result[] = $value; 
+          } 
+       } 
+    } 
+    
+    return $result; 
+ }
+
+function ComparePackageLists($latestPackages, $previousPacakges, $log)
+{
+    $foundDiff = false;
+    $foundPackage = false;
+    foreach($latestPackages as $latestPackage)
+    {
+        $foundPackage = false;
+        foreach($previousPacakges as $previousPackage)
+        {
+            if ($latestPackage->name == $previousPackage->name)
+            {
+                if ($latestPackage->version != $previousPackage->version)
+                {
+                    echo $latestPackage->name.": PACKAGE VERSION changed: '".$latestPackage->version."' => '".$previousPackage->version."'\n";
+                    $foundDiff = true;
+                }
+                $foundPackage = true;
+            }
+            if ($foundPackage == true)
+                break;
+        }
+        if ($foundPackage == false)
+        {
+            echo $latestPackage->name.": NEW PACKAGE! version '".$latestPackage->version."'\n";
+            $foundDiff = true;
+        }
+    }
+
+    foreach($previousPacakges as $previousPackage)
+    {
+        $foundPackage = false;
+        foreach($latestPackages as $latestPackage)
+        {
+            if ($latestPackage->name == $previousPackage->name)
+            {
+                $foundPackage = true;
+                break;
+            }
+        }
+        if ($foundPackage == false)
+        {
+            echo $previousPackage->name.": PACKAGE REMOVED! '".$previousPackage->version."'\n";
+        }
+    }
+}
+
 
 //setup:
 $config = new Config(__DIR__.$relativeWWWRootFolder, 'conf/config.yaml');
@@ -51,52 +118,30 @@ $sourceHelper = new SourceHelper($config, $log);
 $deviceList = new DeviceList($config);
 $DSMVersionList = new DSMVersionList($config);
 CacheManager::SetCronMode();
+$dir = dirToArray($config->paths["cache"]);
+$today = date('d-m-Y', time());
 
+foreach ($dir as $key => $fileName)
+{
+    $fullPath = $config->paths["cache"]. DIRECTORY_SEPARATOR .$fileName;
+    $ext = pathinfo($fullPath, PATHINFO_EXTENSION);
+    if ($ext == "cache")
+    {
+        $ct = date('d-m-Y', filemtime($fullPath));
+        if ($ct == $today)
+        {
+            echo "-------------------------------\n";
+            echo $fileName."\n";
+            if (file_exists($fullPath."0")) //check if previous result exists
+            {
+                $latestResult = CacheManager::GetResponseStringFromCacheFile($fullPath);
+                $latestPackages = $packageHelper->GetPackagesFromJsonResult($latestResult);
+                $previousResult = CacheManager::GetResponseStringFromCacheFile($fullPath."0");
+                $previousPacakges = $packageHelper->GetPackagesFromJsonResult($previousResult);
+                ComparePackageLists($latestPackages, $previousPacakges, $log);
+            }
+        }
+    }
+}
 
-
-
-
-// foreach ($models as $model)
-// {
-//     $arch = $deviceList->GetArch($model);
-//     if (!isset($arch))
-//     {
-//         $log->error("Missing arch for model ".$model);
-//     }
-//     else
-//     {
-//         echo str_pad($model, 12);
-//         foreach ($sourceHelper->GetSources() as $source)
-//         {
-//             foreach ($versionBuilds as $build)
-//             {
-//                 $version = $DSMVersionList->GetVersionByBuild($build);
-//                 if (isset($version))
-//                 {
-//                     $major = null;
-//                     $minor = null;
-//                     $b = null;
-//                     if ($DSMVersionList->GetVersionDetails($version, $major, $minor, $build) == false)
-//                         continue;
-//                     $errorMessage = null;
-//                     $result = $packageHelper->GetPackages($source->url, $arch, $model, $major, $minor, $build, true, $source->customUserAgent, $errorMessage);
-//                     echo ".";
-//                     if (isset($errorMessage))
-//                     {
-//                         $log->error($errorMessage);
-//                         echo "x";
-//                     }
-//                     $result = $packageHelper->GetPackages($source->url, $arch, $model, $major, $minor, $build, false, $source->customUserAgent, $errorMessage);
-//                     echo ".";
-//                     if (isset($errorMessage))
-//                     {
-//                         $log->error($errorMessage);
-//                         echo "x";
-//                     }
-//                 }
-//             }
-//         }
-//         echo "\n";
-//     }    
-// }
 ?>

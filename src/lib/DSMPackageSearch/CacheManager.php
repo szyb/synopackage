@@ -54,11 +54,28 @@ class CacheManager
                 return $result;
             }
             // else delete cache file
+
+            self::Rotate($fullPath);
+
             fclose($fh);
             unlink($fullPath);
         }
 
         return null;
+    }
+
+    public static function GetResponseStringFromCacheFile($fullPath)
+    {
+        if (file_exists($fullPath)) {
+            $fh = fopen($fullPath, 'r');
+            $cacheTime = trim(fgets($fh));
+            $timeLength = strlen($cacheTime);
+            $result = fread($fh, filesize($fullPath) - $timeLength);
+            fclose($fh);
+            if ($result == null) //handle with empty response
+               $result = "";
+            return $result;
+        } 
     }
 
     public static function SavePackageCacheContent($cacheFolder, $url, $model, $build, $isBeta, $data) 
@@ -68,8 +85,6 @@ class CacheManager
         
         $fullPath = CacheManager::GetFullPath($cacheFolder, $url, $model, $build, $isBeta);
 
-        self::Rotate($fullPath);
-        
         $fh = fopen($fullPath, 'w');
         fwrite($fh, time() . "\n");
         fwrite($fh, $data);
@@ -163,12 +178,12 @@ class CacheManager
             if (file_exists($file))
             {
                 $ct = filemtime($file);
-                $ext = time();
-                $diffDays = ($ct - $ext) / 86400;
+                $now = time();
+                $diffDays = ($now - $ct) / 86400;
                 if ($diffDays > 1)
-                    copy($file, $file.".".$i);
+                    copy($file, $file.$i);
             }
-            $file = $fullPath.".".$i;            
+            $file = $fullPath.$i;            
         }
     }
 
