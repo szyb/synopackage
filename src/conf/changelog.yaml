@@ -1,3 +1,10 @@
+version 0.9.7:
+  version: 0.9.7
+  date: 09.03.2018
+  improved:
+    - Handle with server response without name of the package
+    - Backend minor changes to track package changes in source servers (part 2)
+
 version 0.9.6:
   version: 0.9.6
   date: 08.03.2018
