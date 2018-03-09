@@ -20,7 +20,7 @@ class CacheManager
         self::$cronModeStartsAt = microtime(true);
     }
 
-    public static function getFullPath($cacheFolder, $url, $model, $build, $isBeta)
+    public static function GetFullPath($cacheFolder, $url, $model, $build, $isBeta)
     {
         if ($isBeta == "true" || $isBeta == "1" || $isBeta == "on")
             $channel = "beta";
@@ -35,10 +35,11 @@ class CacheManager
 
     public static function GetPackageCacheContent($cacheFolder, $cacheExpiration, $url, $model, $build, $isBeta) 
     {
-        if (self::$useCache == false || self::$cronMode == true)
-            return null;
-
         $fullPath = CacheManager::GetFullPath($cacheFolder, $url, $model, $build, $isBeta);
+        self::Rotate($fullPath);
+
+        if (self::$useCache == false || self::$cronMode == true)
+            return null;        
 
         if (file_exists($fullPath)) {
             $fh = fopen($fullPath, 'r');
@@ -54,9 +55,6 @@ class CacheManager
                 return $result;
             }
             // else delete cache file
-
-            self::Rotate($fullPath);
-
             fclose($fh);
             unlink($fullPath);
         }
@@ -180,7 +178,7 @@ class CacheManager
                 $ct = filemtime($file);
                 $now = time();
                 $diffDays = ($now - $ct) / 86400;
-                if ($diffDays > 1)
+                if ($diffDays >= 0.95) //rotate file when it is at least ~22.8h old
                     copy($file, $file.$i);
             }
             $file = $fullPath.$i;            
