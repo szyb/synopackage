@@ -258,6 +258,8 @@ class PackageHelper
             $pkg->downloadLink = $p->{'link'};
             if (isset($p->{'beta'}) == true)
                 $pkg->isBeta = $p->{'beta'};
+            if ($pkg->name == null && $pkg->package != null)
+                $pkg->name = $pkg->package;
             if (isset($p->{'thumbnail'}))
             {
                 if ($ignoreCachingIcons == false)
