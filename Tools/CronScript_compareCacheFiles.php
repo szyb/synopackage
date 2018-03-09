@@ -19,7 +19,6 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\JsonFormatter;
 
-
 function dirToArray($dir) { 
    
     $result = array(); 
@@ -43,7 +42,7 @@ function dirToArray($dir) {
     return $result; 
  }
 
-function ComparePackageLists($latestPackages, $previousPacakges, $log)
+function ComparePackageLists($fileName, $latestPackages, $previousPacakges, $log)
 {
     $foundDiff = false;
     $foundPackage = false;
@@ -87,6 +86,11 @@ function ComparePackageLists($latestPackages, $previousPacakges, $log)
             echo $previousPackage->name.": PACKAGE REMOVED! '".$previousPackage->version."'\n";
         }
     }
+    if ($foundDiff == true)
+    {
+        echo "changes found at ".$fileName."\n";
+        echo "-------------------------------\n";
+    }
 }
 
 
@@ -111,7 +115,8 @@ $errorHandler->setFormatter($formatter);
 $log->pushHandler($debugHandler);
 $log->pushHandler($errorHandler);
 
-echo $config->site["name"]."\n";
+echo $config->site["name"]." - compare cached files\n";
+echo "-------------------------------\n";
 
 $packageHelper = new PackageHelper($config, $log);
 $sourceHelper = new SourceHelper($config, $log);
@@ -120,7 +125,7 @@ $DSMVersionList = new DSMVersionList($config);
 CacheManager::SetCronMode();
 $dir = dirToArray($config->paths["cache"]);
 $today = date('d-m-Y', time());
-
+$filesCompared = 0;
 foreach ($dir as $key => $fileName)
 {
     $fullPath = $config->paths["cache"]. DIRECTORY_SEPARATOR .$fileName;
@@ -130,18 +135,18 @@ foreach ($dir as $key => $fileName)
         $ct = date('d-m-Y', filemtime($fullPath));
         if ($ct == $today)
         {
-            echo "-------------------------------\n";
-            echo $fileName."\n";
             if (file_exists($fullPath."0")) //check if previous result exists
             {
+                $filesCompared++;
                 $latestResult = CacheManager::GetResponseStringFromCacheFile($fullPath);
                 $latestPackages = $packageHelper->GetPackagesFromJsonResult($latestResult);
                 $previousResult = CacheManager::GetResponseStringFromCacheFile($fullPath."0");
                 $previousPacakges = $packageHelper->GetPackagesFromJsonResult($previousResult);
-                ComparePackageLists($latestPackages, $previousPacakges, $log);
+                ComparePackageLists($fileName, $latestPackages, $previousPacakges, $log);
             }
         }
     }
 }
+echo "Total files compared: ".$filesCompared;
 
 ?>
