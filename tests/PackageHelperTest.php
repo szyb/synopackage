@@ -178,7 +178,7 @@ class PackageHelperTest extends TestCase
         $response = null;
         $result = TestTools::InvokeMethod($this->packageHelper, 
             "parseResponse", 
-            array($response, "http://packages.synocommunity.com"));
+            array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(0, count($result));
     }
@@ -214,7 +214,7 @@ class PackageHelperTest extends TestCase
     
         $result = TestTools::InvokeMethod($this->packageHelper, 
             "parseResponse", 
-            array($response, "http://packages.synocommunity.com"));
+            array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(98, count($result));
 
@@ -251,7 +251,7 @@ class PackageHelperTest extends TestCase
     
         $result = TestTools::InvokeMethod($this->packageHelper, 
             "parseResponse", 
-            array($response, "http://packages.synocommunity.com"));
+            array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(1, count($result));
                
@@ -288,7 +288,7 @@ class PackageHelperTest extends TestCase
     
         $result = TestTools::InvokeMethod($this->packageHelper, 
             "parseResponse", 
-            array($response, "http://packages.synocommunity.com"));
+            array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(1, count($result));
                
@@ -325,7 +325,7 @@ class PackageHelperTest extends TestCase
     
         $result = TestTools::InvokeMethod($this->packageHelper, 
             "parseResponse", 
-            array($response, "http://packages.synocommunity.com"));
+            array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(3, count($result));
                
