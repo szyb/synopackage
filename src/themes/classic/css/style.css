@@ -678,3 +678,40 @@ span.tooltiptext{
     font-weight: bold;
     color: blue;
 }
+
+
+#donate .donate
+{
+    min-height: 72px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff));
+    background: -moz-linear-gradient(top,  #eee,  #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff');
+
+    border-radius: 7px; 
+    -moz-border-radius: 7px; 
+    -webkit-border-radius: 7px; 
+    border: 1px solid #ddd;
+
+    width: 600px;
+    padding: 7px;
+    margin-bottom: 30px;
+    margin-left:auto;
+    margin-right:auto;
+
+    color: #555;
+}
+
+
+#donate .info
+{
+    color: #3F5E8A;
+    display: block;
+    font-size: large;
+    margin-bottom: 20px;
+}
+
+#faq .description
+{
+    display: block;
+    padding-bottom: 10px;
+}
