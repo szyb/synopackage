@@ -76,6 +76,10 @@ urls:
       name: cytec
       url: http://cytec.us/spk/
       www: http://cytec.us/spk/
+  - source:
+      name: nzbusenet
+      url: http://synology.nzbusenet.com
+      www: http://synology.nzbusenet.com
 
 
 unsupportedUrls:
