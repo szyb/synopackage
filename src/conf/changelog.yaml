@@ -1,3 +1,11 @@
+version 0.9.8:
+  version: 0.9.8
+  date: 27.03.2018
+  new sources:
+    - http://synology.nzbusenet.com
+  improved:
+    - Handle with downloading icons when space is in the url
+
 version 0.9.7:
   version: 0.9.7
   date: 09.03.2018
