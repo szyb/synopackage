@@ -45,7 +45,7 @@ class DownloadManager
             $errorMessage = curl_error($ch);
         }
         
-        if (isValidIcon($result) == false)
+        if ($this->isValidIcon($result) == false)
             $result = null;        
 
         return $result;
