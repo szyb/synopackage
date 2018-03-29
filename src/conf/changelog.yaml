@@ -5,6 +5,7 @@ version 0.9.98:
     - https://get.filebot.net/syno/
   improved:
     - Handle with non-existing icons (404 - response or other error response)
+    - Improved follow redirects
   new: 
     - Support for new DSM version 6.1.6
 

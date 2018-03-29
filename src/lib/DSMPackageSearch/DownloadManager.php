@@ -27,6 +27,7 @@ class DownloadManager
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->config->site['curlTimeout']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);// read more about HTTPS http://stackoverflow.com/questions/31162706/how-to-scrape-a-ssl-or-https-url/31164409#31164409
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $mark->start();
         $result = curl_exec($ch);
@@ -68,6 +69,7 @@ class DownloadManager
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postParams));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $mark->start();
         $result = curl_exec($ch);
         $mark->end();
