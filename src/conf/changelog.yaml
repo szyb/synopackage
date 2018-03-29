@@ -1,3 +1,14 @@
+version 0.9.98:
+  version: 0.9.9
+  date: 29.03.2018
+  new sources:
+    - https://get.filebot.net/syno/
+  improved:
+    - Handle with non-existing icons (404 - response or other error response)
+  new: 
+    - Support for new DSM version 6.1.6
+
+
 version 0.9.8:
   version: 0.9.8
   date: 27.03.2018
