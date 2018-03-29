@@ -17,9 +17,6 @@ class DownloadManager
 
     public function DownloadContent($resourceUrl, &$errorMessage)
     {
-        // $headers = array(
-        //     'User-Agent:'.$userAgent
-        // );
         $mark = new ExecutionTime();
         
         $ch = curl_init();
@@ -47,6 +44,9 @@ class DownloadManager
         {
             $errorMessage = curl_error($ch);
         }
+        
+        if (isValidIcon($result) == false)
+            $result = null;        
 
         return $result;
     }
@@ -86,6 +86,26 @@ class DownloadManager
         }
         curl_close($ch);
         return $result;
+    }
+
+    private function isValidIcon(string $result)
+    {
+        if ($result == null || strlen($result) == 0)
+            return false;
+        $isValidIcon = false;
+                
+        $resultHeaderPng = substr($result, 0, 8);
+        $resultHeaderGif = substr($result, 0, 3);
+        $resultHeaderJfif = substr($result, 6, 4);
+
+        if ($resultHeaderPng == chr(137).chr(80).chr(78).chr(71).chr(13).chr(10).chr(26).chr(10)) 
+            $isValidIcon = true;
+        else if ($resultHeaderGif === "GIF")
+            $isValidIcon = true;
+        else if ($resultHeaderJfif === "JFIF")
+            $isValidIcon = true;
+        
+        return $isValidIcon;
     }
     
 }

@@ -80,6 +80,10 @@ urls:
       name: nzbusenet
       url: http://synology.nzbusenet.com
       www: http://synology.nzbusenet.com
+  - source:
+      name: filebot
+      url: https://get.filebot.net/syno/
+      www: https://get.filebot.net/syno/
 
 
 unsupportedUrls:
