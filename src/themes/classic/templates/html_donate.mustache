@@ -2,9 +2,20 @@
    <li>
     <div id="donate">
         <div class="donate">
-            <div class="info">info</div>
-            <div class="description">description</div>
-        </div>   
+            <div class="info">Donate</div>
+            <div class="description">If you like this page please consider donation. The links to are below.</div>
+        </div>
+        {{#donateUrls}}
+        <div class="donate">
+            <div class="info">
+            {{#entry.isPaypal}}
+            <a href="{{entry.url}}" target="_blank">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"></img>
+            </a>
+            {{/entry.isPaypal}}
+            </div>
+        </div> 
+        {{/donateUrls}}
     </div>
    </li>
 {{> html_tail }}

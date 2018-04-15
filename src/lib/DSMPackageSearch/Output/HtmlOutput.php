@@ -35,7 +35,7 @@ class HtmlOutput
         {
             $this->setVariable('googleStatisticsCode', $this->config->site['googleStatisticsCode']);
         }
-        if (isset($this->config->site['donateUrls']) == true)
+        if (isset($this->config->site['donateUrls'][0]['entry']['subsystem']) == true)
         {
             $this->setVariable('donationActive', true);
             $this->setVariable('donateUrls', $this->config->site['donateUrls']);
