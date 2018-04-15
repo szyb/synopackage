@@ -41,8 +41,8 @@ urls:
       www: http://jaspr.kastner.wtf/
   - source:
       name: jdel
-      url: http://packages.jdel.org/
-      www: http://packages.jdel.org/
+      url: https://packages.jdel.org/
+      www: https://packages.jdel.org/
   - source:
       name: nas-mirror
       url: http://spk.nas-mirror.de/spkrepo/packages
@@ -76,6 +76,14 @@ urls:
       name: cytec
       url: http://cytec.us/spk/
       www: http://cytec.us/spk/
+  - source:
+      name: nzbusenet
+      url: http://synology.nzbusenet.com
+      www: http://synology.nzbusenet.com
+  - source:
+      name: filebot
+      url: https://get.filebot.net/syno/
+      www: https://get.filebot.net/syno/
 
 
 unsupportedUrls:

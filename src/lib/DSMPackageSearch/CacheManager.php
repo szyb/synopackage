@@ -145,7 +145,10 @@ class CacheManager
             {
                 unlink($fullPathForCronMode);
                 $thumb = $downloadManager->DownloadContent($urlThumbnail, $errorMessage);
-                file_put_contents($fullPathForCronMode, $thumb);
+                if ($thumb != null)
+                    file_put_contents($fullPathForCronMode, $thumb);
+                else
+                  $fullPath = "images/package.png";
             }
         }
         else
@@ -159,7 +162,10 @@ class CacheManager
                     return $fullPathForCronMode;
             }
             $thumb = $downloadManager->DownloadContent($urlThumbnail, $errorMessage);
-            file_put_contents($fullPathForCronMode, $thumb);
+            if ($thumb != null)
+                file_put_contents($fullPathForCronMode, $thumb);
+            else
+                $fullPath = "images/package.png";
         }
         if (self::$cronMode == true)
             return $fullPathForCronMode;
