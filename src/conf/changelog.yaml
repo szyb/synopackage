@@ -1,4 +1,10 @@
-version 0.9.98:
+version 1.0.0:
+  version: 1.0.0
+  date: 19.04.2018
+  new: 
+    - Add possibility to donate via PayPal
+
+version 0.9.9:
   version: 0.9.9
   date: 29.03.2018
   new sources:
