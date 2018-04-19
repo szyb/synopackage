@@ -24,6 +24,7 @@ class Handler
             'FaqHandler',
             'ChangelogHandler',
             'PrivacyPolicyHandler',
+            'DonateHandler',
             'IndexHandler',
             'NotFoundHandler'
         );
