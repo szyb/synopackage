@@ -2,17 +2,23 @@
    <li>
     <div id="donate">
         <div class="donate">
+            <div class="icon"><img src='{{themeUrl}}images/chart.png' width="72" height="72" alt='thumbnail'/></div>
             <div class="info">Donate</div>
             <div class="description">
-<p>Synopackage.com is a free and open source website without ads. 
-The hosting cost money, so if you like the website, please consider a donation. 
-Any amount is acceptable. Below you can find link to make a donation.</p>
-{{#donateUrls}}
-<a href="{{entry.url}}" target="_blank">
-{{#entry.isPaypal}}
-    <img src="images/paypal_37x23.jpg" alt="paypal"></img>
-{{/entry.isPaypal}}
-</a>
-{{/donateUrls}}
+                Synopackage.com is a free and open source website without ads. 
+                The hosting cost money, so if you like the website, please consider a donation. 
+                Any amount is acceptable. Below you can find link to make a donation.
+            </div>
+            <div class="urls">
+                {{#donateUrls}}
+                <a href="{{entry.url}}" target="_blank">
+                    {{#entry.isPaypal}}
+                        <img src="images/paypal_37x23.jpg" alt="paypal"></img>
+                    {{/entry.isPaypal}}
+                </a>
+                {{/donateUrls}}
+            </div>
+        </div>
+    </div>
    </li>
 {{> html_tail }}

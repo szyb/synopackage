@@ -701,13 +701,25 @@ span.tooltiptext{
     color: #555;
 }
 
+#donate .icon {
+    float: left;
+    margin-right: 13px;
+    display: block;
+}
 
-#donate .info
+#donate .info 
 {
     color: #3F5E8A;
     display: block;
     font-size: large;
-    margin-bottom: 20px;
+}
+
+#donate .urls 
+{
+    color: #3F5E8A;
+    display: block;
+    font-size: large;
+    margin-left: 90px;
 }
 
 #faq .description
