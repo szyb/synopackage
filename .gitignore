@@ -17,3 +17,4 @@
 /tests/cache/*.cache1
 /tests/cache/*.cache2
 /tests/cache/*.cache3
+/src/cache/cookies.txt

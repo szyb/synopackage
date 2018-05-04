@@ -70,6 +70,8 @@ class DownloadManager
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postParams));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_COOKIEJAR, $this->config->paths['cache'].'cookies.txt');
+        curl_setopt($ch, CURLOPT_COOKIEFILE, $this->config->paths['cache'].'cookies.txt');
         $mark->start();
         $result = curl_exec($ch);
         $mark->end();
