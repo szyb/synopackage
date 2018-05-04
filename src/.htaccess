@@ -9,3 +9,8 @@ Options All -Indexes
 Order deny,allow
 deny from all
 </FilesMatch>
+
+<FilesMatch "cookies.txt">
+Order deny,allow
+deny from all
+</FilesMatch>
