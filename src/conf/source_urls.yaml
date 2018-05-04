@@ -20,10 +20,6 @@ urls:
       url: http://spk.unzureichende.info/
       www: http://spk.unzureichende.info/
   - source:
-      name: page81
-      url: https://packages.page81.net/
-      www: https://packages.page81.net/
-  - source:
       name: naefmarco
       url: http://spk.naefmarco.ch/spkrepo/packages/
       www: http://spk.naefmarco.ch/spkrepo/packages/
@@ -51,10 +47,6 @@ urls:
       name: dierkse
       url: http://syno.dierkse.nl
       www: http://syno.dierkse.nl
-  - source:
-      name: brigittehelsen
-      url: http://www.brigittehelsen.be/plexconnect/
-      www: http://www.brigittehelsen.be/plexconnect/
   - source:
       name: nimoloth
       url: http://synology.nimloth.pl/
@@ -87,7 +79,14 @@ urls:
 
 
 unsupportedUrls:
-
+- source:
+    name: page81
+    url: https://packages.page81.net/
+    www: https://packages.page81.net/
+- source:
+    name: brigittehelsen
+    url: http://www.brigittehelsen.be/plexconnect/
+    www: http://www.brigittehelsen.be/plexconnect/
 - source:
     name: sysco
     url: http://synology.sysco.ch
