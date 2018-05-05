@@ -60,7 +60,8 @@ class DownloadManager
         $mark = new ExecutionTime();
         
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $resourceUrl);
+        $uri = $resourceUrl."?".http_build_query($postParams, '', '&');
+        curl_setopt($ch, CURLOPT_URL, $uri);
         if (isset($this->config->site['curlProxy'])==true)
             curl_setopt($ch, CURLOPT_PROXY, $this->config->site['curlProxy']);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $this->config->site['curlTimeout']);
