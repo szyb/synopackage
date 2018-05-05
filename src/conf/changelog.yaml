@@ -1,3 +1,18 @@
+version 1.0.1:
+  version: 1.0.1
+  date: 05.05.2018
+  new: 
+    - Legacy support for old implementation of SSPKS server
+    - Removed some sources (details below)
+    - Add new source http://synology.sysco.ch/
+  new sources:
+    - http://synology.sysco.ch/
+  removed sources:
+    - http://packages.synocommunity.com (investigating issue)
+    - https://packages.jdel.org/ (no packages via Package Center. Only website)
+    - https://packages.page81.net/ (dead link)
+    - http://www.brigittehelsen.be/plexconnect/ (server configuration issue)
+
 version 1.0.0:
   version: 1.0.0
   date: 19.04.2018
