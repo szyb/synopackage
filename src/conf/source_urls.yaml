@@ -32,7 +32,10 @@ urls:
       name: kastner
       url: http://jaspr.kastner.wtf/
       www: http://jaspr.kastner.wtf/
-  
+  - source:
+      name: jdel
+      url: https://packages.jdel.org/
+      www: https://packages.jdel.org/
   - source:
       name: nas-mirror
       url: http://spk.nas-mirror.de/spkrepo/packages/
@@ -81,10 +84,6 @@ unsupportedUrls:
     name: synocommunity
     url: http://packages.synocommunity.com
     www: http://synocommunity.com
-- source:
-    name: jdel
-    url: https://packages.jdel.org/
-    www: https://packages.jdel.org/
 - source:
     name: page81
     url: https://packages.page81.net/

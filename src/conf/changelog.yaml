@@ -1,3 +1,11 @@
+version 1.0.2:
+  version: 1.0.2
+  date: 06.05.2018
+  fixed: 
+    - back with source packages.jdel.org
+  new sources:
+    - https://packages.jdel.org/ (fixed by vendor)
+  
 version 1.0.1:
   version: 1.0.1
   date: 05.05.2018
