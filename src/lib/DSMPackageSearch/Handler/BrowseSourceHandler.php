@@ -51,6 +51,7 @@ class BrowseSourceHandler extends AbstractHandler
             $errorMessage = null;
             $packageList = $packageHelper->GetPackages($source->url, $arch, $model, $major, $minor, $build, $isBeta, $source->customUserAgent, $customUserAgent, $errorMessage);
             $output->setVariable("sourceUrl", $source->url);
+            $output->setVariable("sourceWWW", $source->www);
             if ($errorMessage != null)
             {
                 $output->setTemplate('html_browse_source_none');
