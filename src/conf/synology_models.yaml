@@ -165,6 +165,7 @@ x86_64:
         - DS2415+
         - RS815(RP)+
         - RS2416(RP)+
+        - RS818+/RS818RP+
     braswell:
         - DS216+
         - DS216+II
@@ -231,4 +232,11 @@ x86_64:
         - DS918+
     broadwellnk:
         - DS3018xs
+        - FS1018
+    denverton:
+        - RS2818RP+
+        - RS2418+
+        - RS2418RP+
+        - DS1618+
+        - RS2418+/RS2418RP+
         

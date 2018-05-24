@@ -1,5 +1,8 @@
 urls:
- 
+  - source:
+      name: synocommunity
+      url: http://packages.synocommunity.com
+      www: http://synocommunity.com
   - source:
       name: cphub
       url: https://www.cphub.net/
@@ -80,10 +83,7 @@ urls:
 
 
 unsupportedUrls:
-- source:
-    name: synocommunity
-    url: http://packages.synocommunity.com
-    www: http://synocommunity.com
+
 - source:
     name: page81
     url: https://packages.page81.net/
