@@ -235,8 +235,6 @@ x86_64:
         - FS1018
     denverton:
         - RS2818RP+
-        - RS2418+
-        - RS2418RP+
+        - RS2418(RP)+
         - DS1618+
-        - RS2418+/RS2418RP+
         
