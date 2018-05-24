@@ -1,3 +1,11 @@
+version 1.0.3:
+  version: 1.0.3
+  date: 24.05.2018
+  new: 
+    - Add link "Visit website" on browse source page
+    - Add new DSM versions 6.1.7 & 6.2
+    - Add new models from x18 series
+
 version 1.0.2:
   version: 1.0.2
   date: 06.05.2018

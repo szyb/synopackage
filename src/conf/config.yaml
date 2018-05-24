@@ -2,9 +2,9 @@ site:
     testingOnly: false
     name: Synopackage.com
     theme: classic
-    latestVersion: 6.1.5-15254
+    latestVersion: 6.2-23739
     defaultModel: DS418play
-    websiteVersion: 1.0.2
+    websiteVersion: 1.0.3
     useCache: true
     #in strtotime format
     cacheExpiration: -1 day
