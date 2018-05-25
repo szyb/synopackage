@@ -39,6 +39,7 @@ class PackageHelper
             try
             {
                 $result = $this->RequestPackageList($requestedSource, $arch, $model, $major, $minor, $build, $isBeta, $customUserAgent, $errorMessage);
+                usort($result, array("\DSMPackageSearch\Package\PackageHelper", "ComparePackages"));
             }
             catch (\Exception $e)
             {
@@ -316,5 +317,15 @@ class PackageHelper
             return 1;
         else        
             return $indexA < $indexB ? -1 : 1;
+    }
+
+    static function ComparePackages($a, $b)
+    {
+        if ($a == $b)
+            return 0;
+        if ($a->name == $b->name)
+            return -strcmp($a->version, $b->version);
+        else
+            return strcmp($a->name, $b->name);
     }
 }
