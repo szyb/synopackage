@@ -67,6 +67,9 @@ a img {
 #content ul li a {
     text-decoration: none;
 }
+a:visited {
+    color: #0000bb;
+}
 
 #content ul li.package {
     min-height: 72px;
