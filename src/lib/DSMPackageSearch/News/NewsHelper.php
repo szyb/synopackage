@@ -2,6 +2,7 @@
 
 namespace DSMPackageSearch\News;
 use \DSMPackageSearch\News\News;
+use \DSMPackageSearch\Infrastructure\PageDetail;
 use \Symfony\Component\Yaml\Yaml;
 use \Symfony\Component\Yaml\Exception\ParseException;
 use \DateTime;
@@ -12,10 +13,17 @@ class NewsHelper
     public $config;
     public $newsFile;
     public $news;
+    public $allNews;
+    public $totalPages;
+    private $newsPerPage;
+    public $pagesArray;
+    public $currentPage;
+
     public function __construct(\DSMPackageSearch\Config $config)
     {
         $this->config = $config;
         $this->newsFile = $this->config->paths["news"];
+        $this->newsPerPage = intval($this->config->site['newsPerPage']);
         if (!file_exists($this->newsFile)) {
             throw new \Exception('Source list file ' . $this->newsFile . ' not found!');
         }
@@ -32,7 +40,7 @@ class NewsHelper
         } catch (ParseException $e) {
             throw new \Exception($e->getMessage());
         }
-        $this->news = array();
+        $this->allNews = array();
         $idx = 0;
         foreach ($newsYaml as $key => $value)
         {
@@ -55,9 +63,43 @@ class NewsHelper
 
                 // $n->body = str_ireplace('&lt;', '<', $value['message']['body']);
                 // $n->body = str_ireplace('&gt;', '>', $n->body);
-                $this->news[$idx] = $n;
+                $this->allNews[$idx] = $n;
                 $idx++;
             }
+        }
+        $this->totalPages = ceil($idx / $this->newsPerPage);
+        
+        $this->SetPage(1);
+    }
+
+    public function SetPage($page)
+    {
+        $this->news = array();
+        
+        if ($page > $this->totalPages)
+            $page = $this->totalPages;
+        $this->currentPage = $page;
+        $startAt = ($page - 1) * $this->newsPerPage;
+        $endAt = $page * $this->newsPerPage;
+        $idx = $startAt;
+        $i = 0;
+        while ($idx < $endAt && $idx < count($this->allNews))
+        {
+            $this->news[$i] = $this->allNews[$idx];
+            $i++;
+            $idx++;
+        }
+        
+        $this->pagesArray = array();
+        for ($i = 1; $i <= $this->totalPages; $i++)
+        {
+            $pageDetail = new PageDetail();
+            $pageDetail->pageNumber = $i;
+            if ($i == $page)
+                $pageDetail->isCurrentPage = true;
+            else 
+                $pageDetail->isCurrentPage = false;
+            $this->pagesArray[$i-1] = $pageDetail;
         }
     }
 

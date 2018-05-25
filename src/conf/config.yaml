@@ -11,11 +11,12 @@ site:
     cachePngExpiration: -30 days
     logExecutionTime: true
     logSearchQueries: true
+    newsPerPage: 5
     #curl options:
     #in seconds
     curlTimeout: 15
     #leave empty if no proxy
-    curlProxy: 
+    curlProxy:
     #google analytics code (leave empty if not used)
     googleStatisticsCode: 
     #semicolon separated
