@@ -67,6 +67,9 @@ a img {
 #content ul li a {
     text-decoration: none;
 }
+a:visited {
+    color: #0000bb;
+}
 
 #content ul li.package {
     min-height: 72px;
@@ -726,4 +729,25 @@ span.tooltiptext{
 {
     display: block;
     padding-bottom: 10px;
+}
+
+#content ul li div.news_pages {
+    min-height: 50px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff));
+    background: -moz-linear-gradient(top,  #eee,  #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff');
+    text-align: center;
+
+    border-radius: 7px; 
+    -moz-border-radius: 7px; 
+    -webkit-border-radius: 7px; 
+    border: 1px solid #ddd;
+
+    width: 300px;
+    padding: 7px;
+    margin-bottom: 10px;
+    margin-left:auto;
+    margin-right:auto;
+
+    color: #555;
 }
