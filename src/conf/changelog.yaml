@@ -1,3 +1,14 @@
+version 1.0.4:
+  version: 1.0.4
+  date: 25.05.2018
+  new: 
+    - Sort packages by name and by version
+    - News - page numbering
+    - Add link to Facebook page (contact page)
+    - Slightly change style for visited links
+  fixed:
+    - Downloading icons might take too long time in some circumstances
+
 version 1.0.3:
   version: 1.0.3
   date: 24.05.2018
