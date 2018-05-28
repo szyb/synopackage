@@ -78,6 +78,8 @@ class NewsHelper
         
         if ($page > $this->totalPages)
             $page = $this->totalPages;
+        if ($page <= 0)
+            $page = 1;
         $this->currentPage = $page;
         $startAt = ($page - 1) * $this->newsPerPage;
         $endAt = $page * $this->newsPerPage;
