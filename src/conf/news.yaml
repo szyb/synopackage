@@ -1,4 +1,39 @@
 - message:
+   title: news 1.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     news 1
+
+- message:
+   title: news 2.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     news 2
+
+- message:
+   title: news 3.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     news 3
+
+- message:
+   title: news 4.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     news 4
+
+- message:
+   title: news 5.
+   date: 26.10.2017
+#   publishDate: 20.08.2017 00:00:00
+   body: |
+     news 5
+
+- message:
    title: Synopackage.com is online.
    date: 26.10.2017
 #   publishDate: 20.08.2017 00:00:00
