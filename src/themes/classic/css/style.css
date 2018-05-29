@@ -731,7 +731,7 @@ span.tooltiptext{
     padding-bottom: 10px;
 }
 
-#content ul li div.news_pages {
+#content ul li div.pages {
     min-height: 50px;
     background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff));
     background: -moz-linear-gradient(top,  #eee,  #fff);

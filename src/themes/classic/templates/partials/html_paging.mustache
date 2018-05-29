@@ -1,0 +1,12 @@
+ {{#pages.0}}
+    <div class="pages"><span>Page: </span>
+    {{#pages}}    
+        {{#isCurrentPage}}
+            {{pageNumber}}&nbsp;
+        {{/isCurrentPage}}
+        {{^isCurrentPage}}
+            <a href="?news=1&amp;page={{pageNumber}}">{{pageNumber}}</a>&nbsp;
+        {{/isCurrentPage}}    
+    {{/pages}}
+    </div>
+    {{/pages.0}}
