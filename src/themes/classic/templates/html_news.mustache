@@ -10,17 +10,6 @@
         </div>
     {{/news}}
     </div>
-    {{#pages.0}}
-    <div class="news_pages"><span>Page: </span>
-    {{#pages}}    
-        {{#isCurrentPage}}
-            {{pageNumber}}&nbsp;
-        {{/isCurrentPage}}
-        {{^isCurrentPage}}
-            <a href="?news=1&amp;page={{pageNumber}}">{{pageNumber}}</a>&nbsp;
-        {{/isCurrentPage}}    
-    {{/pages}}
-    {{/pages.0}}
-    </div>
+    {{> html_paging }}
    </li>
 {{> html_tail }}
