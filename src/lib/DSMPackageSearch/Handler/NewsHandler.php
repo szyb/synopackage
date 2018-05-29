@@ -34,6 +34,7 @@ class NewsHandler extends AbstractHandler
         $output->setVariable('news', $newsHelper->GetItems());
         if ($newsHelper->GetTotalPages() > 1)
         {
+            $output->setVariable('site', 'news');
             $output->setVariable('pages', $newsHelper->GetPagesDetails());
         }
         $output->output();
