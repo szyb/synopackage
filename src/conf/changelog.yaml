@@ -1,3 +1,11 @@
+version 1.0.5:
+  version: 1.0.5
+  date: 29.05.2018
+  new: 
+    - Changelog - page numbering
+  fixed:
+    - Minor code refactor
+
 version 1.0.4:
   version: 1.0.4
   date: 25.05.2018
