@@ -4,8 +4,10 @@ namespace DSMPackageSearch\Changelog;
 use \Symfony\Component\Yaml\Yaml;
 use \Symfony\Component\Yaml\Exception\ParseException;
 use \DSMPackageSearch\Changelog\Changelog;
+use \DSMPackageSearch\Infrastructure\PageDetails;
+use \DSMPackageSearch\Infrastructure\PagingAbstract;
 
-class ChangelogHelper
+class ChangelogHelper extends PagingAbstract
 {
     public $config;
     public $changelogFile;
@@ -20,6 +22,7 @@ class ChangelogHelper
         }
         try {
             $this->parseYaml();
+            parent::__construct(5, $this->changelogs);
         } catch (\Exception $e) {
             throw $e;
         }
