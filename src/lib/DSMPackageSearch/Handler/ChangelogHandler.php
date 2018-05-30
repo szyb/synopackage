@@ -20,22 +20,10 @@ class ChangelogHandler extends AbstractHandler
         $output = new HtmlOutput($this->config);
         $this->SetTitle($output);
         $output->setTemplate('html_changelog');
-        $changelogHelper = new ChangelogHelper($this->config);        
+        $changelogHelper = new ChangelogHelper($this->config);
         if ($changelogHelper->CheckVersionMismatch()==true)
             $output->setVariable("warningVersionMismatch", true);
-        
-        if (array_key_exists('page', $_GET) && !empty(trim($_GET['page'])))
-        {
-            $pageNumber = intval($_GET['page']);
-            $changelogHelper->SetPage($pageNumber);
-        }
-        $output->setVariable('changelogs', $changelogHelper->GetItems());
-        if ($changelogHelper->GetTotalPages() > 1)
-        {
-            $output->setVariable('site', 'changelog');
-            $output->setVariable('pages', $changelogHelper->GetPagesDetails());
-        }
-
+        $this->HandlePaging($output, $changelogHelper, 'changelogs', 'changelog');
         $output->output();
     }
 }

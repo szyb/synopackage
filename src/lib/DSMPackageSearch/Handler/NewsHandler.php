@@ -24,19 +24,7 @@ class NewsHandler extends AbstractHandler
         $this->SetTitle($output);
         $output->setTemplate('html_news');
         $newsHelper = new NewsHelper($this->config);
-
-        if (array_key_exists('page', $_GET) && !empty(trim($_GET['page'])))
-        {
-            $pageNumber = intval($_GET['page']);
-            $newsHelper->SetPage($pageNumber);
-        }
-
-        $output->setVariable('news', $newsHelper->GetItems());
-        if ($newsHelper->GetTotalPages() > 1)
-        {
-            $output->setVariable('site', 'news');
-            $output->setVariable('pages', $newsHelper->GetPagesDetails());
-        }
+        $this->HandlePaging($output, $newsHelper, 'news', 'news');
         $output->output();
     }
 }

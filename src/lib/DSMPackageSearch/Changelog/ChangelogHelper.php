@@ -9,9 +9,9 @@ use \DSMPackageSearch\Infrastructure\PagingAbstract;
 
 class ChangelogHelper extends PagingAbstract
 {
-    public $config;
-    public $changelogFile;
-    public $changelogs;
+    private $config;
+    private $changelogFile;
+    private $changelogs;
 
     public function __construct(\DSMPackageSearch\Config $config)
     {
