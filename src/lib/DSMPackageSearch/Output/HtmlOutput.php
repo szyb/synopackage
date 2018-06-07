@@ -31,6 +31,8 @@ class HtmlOutput
         $this->setVariable('themeUrl', $this->config->baseUrlRelative . $this->config->relativePaths['themes'] . $this->config->site['theme'] . '/');
         $this->setVariable('requestUri', $_SERVER['REQUEST_URI']);
         $this->setVariable('websiteVersion', $this->config->site['websiteVersion']);
+        if (date("Y") != "2017") //2017 is a starting year
+            $this->setVariable('endYear', date("Y"));
         if (stripos($this->config->baseUrl, "localhost" ) == false || isset($this->config->site['googleStatisticsCode']) == true)
         {
             $this->setVariable('googleStatisticsCode', $this->config->site['googleStatisticsCode']);
