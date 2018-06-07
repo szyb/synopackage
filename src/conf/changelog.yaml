@@ -1,3 +1,12 @@
+version 1.0.6:
+  version: 1.0.6
+  date: 07.06.2018
+  fixed:
+    - Footer update
+    - Minor code refactor
+  removed sources:
+    - http://spk.diablos-netzwerk.de (503 - service unavailable)
+
 version 1.0.5:
   version: 1.0.5
   date: 29.05.2018

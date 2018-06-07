@@ -51,10 +51,7 @@ urls:
       name: nimoloth
       url: http://synology.nimloth.pl/
       www: http://synology.nimloth.pl/
-  - source:
-      name: diablos-netzwerk
-      url: http://spk.diablos-netzwerk.de/
-      www: http://spk.diablos-netzwerk.de/
+  
   - source:
       name: cambier
       url: https://synology.cambier.org/
@@ -83,7 +80,10 @@ urls:
 
 
 unsupportedUrls:
-
+- source:
+    name: diablos-netzwerk
+    url: http://spk.diablos-netzwerk.de/
+    www: http://spk.diablos-netzwerk.de/
 - source:
     name: page81
     url: https://packages.page81.net/
