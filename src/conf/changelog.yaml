@@ -1,3 +1,11 @@
+version 1.0.7:
+  version: 1.0.7
+  date: 10.06.2018
+  new sources:
+    - https://packages.page81.net/ (back after server was down)
+    - https://www.hofrichter.at/sspks/ 
+    - http://www.jadahl.com (domoticz packages - unsupported as it doesn't serve packages to DSM. Only available for manual download)
+
 version 1.0.6:
   version: 1.0.6
   date: 07.06.2018
