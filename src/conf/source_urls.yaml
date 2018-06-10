@@ -76,18 +76,27 @@ urls:
   - source:
       name: sysco
       url: http://synology.sysco.ch/
-      www: http://synology.sysco.ch/      
+      www: http://synology.sysco.ch/ 
+  - source:
+      name: page81
+      url: https://packages.page81.net/
+      www: https://packages.page81.net/
+  - source:
+      name: hofrichter
+      url: https://www.hofrichter.at/sspks/
+      www: https://www.hofrichter.at/sspks/
 
 
 unsupportedUrls:
+
 - source:
     name: diablos-netzwerk
     url: http://spk.diablos-netzwerk.de/
     www: http://spk.diablos-netzwerk.de/
 - source:
-    name: page81
-    url: https://packages.page81.net/
-    www: https://packages.page81.net/
+    name: jadahl
+    url: http://www.jadahl.com
+    www: http://www.jadahl.com
 - source:
     name: brigittehelsen
     url: http://www.brigittehelsen.be/plexconnect/
