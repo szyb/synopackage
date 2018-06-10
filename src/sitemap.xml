@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://search.synopackage.com/</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?news=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?search=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?sourceList=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?faq=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?contact=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?donate=1</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/LICENSE.txt</loc>
+  <lastmod>2017-10-26T15:27:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?privacyPolicy=1</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?changelog=1</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=cphub</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=pcloadletter</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=hildinger</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=unzureichende</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=page81</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=naefmarco</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=acmenet</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=emby</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=kastner</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=jdel</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=nas-mirror</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=dierkse</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=brigittehelsen</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=nimoloth</loc>
+  <changefreq>daily</changefreq>
+</url>
+
+<url>
+  <loc>http://search.synopackage.com/?browseSource=cambier</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=synologyitalia</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=cytec</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=nzbusenet</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=filebot</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://search.synopackage.com/?browseSource=sysco</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>https://search.synopackage.com/?browseSource=synocommunity</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=page81</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://search.synopackage.com/?browseSource=hofrichter</loc>
+  <changefreq>daily</changefreq>
+</url>
+</urlset>
