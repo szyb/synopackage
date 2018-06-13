@@ -17,6 +17,8 @@ class DownloadManager
 
     public function DownloadContent($resourceUrl, &$errorMessage)
     {
+        if (preg_match("/synologyitalia/", $resourceUrl, $matches) > 0 && preg_match("/piwik/", $resourceUrl, $matches) > 0)
+            return null;
         $mark = new ExecutionTime();
         
         $ch = curl_init();
