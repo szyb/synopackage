@@ -31,10 +31,7 @@ urls:
       name: emby
       url: https://synology.emby.media/
       www: https://emby.media/community/index.php?/forum/153-synology/
-  - source:
-      name: kastner
-      url: http://jaspr.kastner.wtf/
-      www: http://jaspr.kastner.wtf/
+  
   - source:
       name: jdel
       url: https://packages.jdel.org/
@@ -78,21 +75,20 @@ urls:
       url: http://synology.sysco.ch/
       www: http://synology.sysco.ch/ 
   - source:
-      name: page81
-      url: https://packages.page81.net/
-      www: https://packages.page81.net/
-  - source:
       name: hofrichter
       url: https://www.hofrichter.at/sspks/
       www: https://www.hofrichter.at/sspks/
+  - source:
+      name: diablos-netzwerk
+      url: http://spk.diablos-netzwerk.de/
+      www: http://spk.diablos-netzwerk.de/?lang=en
 
 
 unsupportedUrls:
-
 - source:
-    name: diablos-netzwerk
-    url: http://spk.diablos-netzwerk.de/
-    www: http://spk.diablos-netzwerk.de/
+    name: page81
+    url: https://packages.page81.net/
+    www: https://packages.page81.net/
 - source:
     name: jadahl
     url: http://www.jadahl.com
@@ -101,6 +97,10 @@ unsupportedUrls:
     name: brigittehelsen
     url: http://www.brigittehelsen.be/plexconnect/
     www: http://www.brigittehelsen.be/plexconnect/
+- source:
+    name: kastner
+    url: http://jaspr.kastner.wtf/
+    www: http://jaspr.kastner.wtf/
 
 
 
