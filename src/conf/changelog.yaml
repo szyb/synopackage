@@ -3,6 +3,7 @@ version 1.0.8:
   date: 09.07.2018
   new:
     - Display error when response from source server is invalid (until now it was "no results" which was not entirely true)
+    - Disqus forum on contact page
 
 version 1.0.7:
   version: 1.0.7
