@@ -5,6 +5,7 @@ use \DSMPackageSearch\Output\HtmlOutput;
 use \DSMPackageSearch\Package\PackageHelper;
 use \DSMPackageSearch\Device\DeviceList;
 use \DSMPackageSearch\CookieManager;
+use \DSMPackageSearch\Device\DSMVersionList;
 
 class BrowseSourceHandler extends AbstractHandler
 {
@@ -25,6 +26,7 @@ class BrowseSourceHandler extends AbstractHandler
         $this->SetTitle($output);
         $packageHelper = new PackageHelper($this->config, $this->log);
         $deviceList = new DeviceList($this->config);
+        $DSMVersionList = new \DSMPackageSearch\Device\DSMVersionList($this->config);
 
         $requestedSource = $_GET['browseSource'];
         $version = CookieManager::GetCookieOrDefault('DSMVersion', $this->config->site['latestVersion']);
@@ -39,7 +41,7 @@ class BrowseSourceHandler extends AbstractHandler
         $major = null;
         $minor = null;
         $build = null;
-        if ($packageHelper->GetVersionDetails($version, $major, $minor, $build) == false)
+        if ($DSMVersionList->GetVersionDetails($version, $major, $minor, $build) == false)
         {
             //fatal error?
         }
@@ -49,35 +51,23 @@ class BrowseSourceHandler extends AbstractHandler
         {
             //get data here:
             $errorMessage = null;
-            $packageList = $packageHelper->GetPackages($source->url, $arch, $model, $major, $minor, $build, $isBeta, $source->customUserAgent, $customUserAgent, $errorMessage);
+            $packageList = $packageHelper->GetPackages($source->url, $arch, $model, $major, $minor, $build, $isBeta, $source->customUserAgent, $errorMessage);
             $output->setVariable("sourceUrl", $source->url);
             $output->setVariable("sourceWWW", $source->www);
             if ($errorMessage != null)
             {
-                $output->setTemplate('html_browse_source_none');
-                $output->setVariable("ModelName", $model);
-                $output->setVariable("Arch", $arch);
-                $output->setVariable("DSMVersion", $version);
-                if ($isBeta == true)
-                    $output->setVariable("isBetaChecked", 'yes');
-                else    
-                    $output->setVariable("isBetaChecked", 'no');
                 $output->setVariable('errorMessage', $errorMessage);
             }
-            else
-            {
-                $output->setTemplate("html_browse_source");
-                $output->setVariable("packages", $packageList);
-                $output->setVariable("ModelName", $model);
-                if ($isBeta == true)
-                    $output->setVariable("isBetaChecked", 'yes');
-                else    
-                    $output->setVariable("isBetaChecked", 'no');
-                $output->setVariable("Arch", $arch);
-                $output->setVariable("DSMVersion", $version);
-                $output->setVariable("TotalPackages", count($packageList));
-            }            
-
+            $output->setTemplate("html_browse_source");
+            $output->setVariable("packages", $packageList);
+            $output->setVariable("ModelName", $model);
+            if ($isBeta == true)
+                $output->setVariable("isBetaChecked", 'yes');
+            else    
+                $output->setVariable("isBetaChecked", 'no');
+            $output->setVariable("Arch", $arch);
+            $output->setVariable("DSMVersion", $version);
+            $output->setVariable("TotalPackages", count($packageList));
         }
         else
         {
