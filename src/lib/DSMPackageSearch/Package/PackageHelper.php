@@ -10,6 +10,8 @@ use \DSMPackageSearch\Package\SearchResult;
 use \DSMPackageSearch\CacheManager;
 use \DSMPackageSearch\Tools\ExecutionTime;
 use \DSMPackageSearch\DownloadManager;
+use \DSMPackageSearch\Device\DSMVersionList;
+
 
 class PackageHelper
 {
@@ -20,6 +22,7 @@ class PackageHelper
     
     private $downloadManager;
     private $sourceHelper;
+    private $DSMVersionList;
 
     public function __construct(\DSMPackageSearch\Config $config, \Monolog\Logger $logger)
     {
@@ -27,6 +30,8 @@ class PackageHelper
         $this->log = $logger;
         $this->downloadManager = new DownloadManager($config, $logger);
         $this->sourceHelper = new SourceHelper($config, $logger);
+        $this->DSMVersionList = new DSMVersionList($config);
+
         
         $this->deviceList = new DeviceList($config);
     }
@@ -59,7 +64,7 @@ class PackageHelper
         $minor = null;
         $build = null;
         $arch = $this->deviceList->GetArch($model); //already validated
-        if ($this->GetVersionDetails($version, $major, $minor, $build) == false || $arch == null)
+        if ($this->DSMVersionList->GetVersionDetails($version, $major, $minor, $build) == false || $arch == null)
         {
             throw new \Exception("Validation failed: version or model");
         }
@@ -207,17 +212,13 @@ class PackageHelper
             {
                 $result = $cachedResult;
             }
-        return $this->parseResponse($result, $requestedSource, false);
+        $jsonResult = $this->validateResult($result, $errorMessage);
+        return $this->parseJsonResponse($jsonResult, $requestedSource, false);
     }
 
-    public function GetPackagesFromJsonResult($result)
+    //returns proper json or null when error
+    private function validateResult($result, &$errorMessage)
     {
-        return $this->parseResponse($result, null, true);
-    }
-
-    private function parseResponse($result, $requestedSource, $ignoreCachingIcons)
-    {
-        $packageList = array();
         $jsonDecoded = json_decode($result, false);
         $error = json_last_error();
         if ($error == JSON_ERROR_CTRL_CHAR)
@@ -225,25 +226,35 @@ class PackageHelper
             //try to fix json and try again
             $result = preg_replace("/\n/", '\n', $result);
             $jsonDecoded = json_decode($result, false);
+            if ($jsonDecoded == null)
+                $errorMessage = "Response from server is invalid (error control character)";
         }
         else if ($error == JSON_ERROR_SYNTAX)
         {
-            // if (stripos($requestedSource, 'synology.nimloth.pl'))
-            // {
-            //     //temporary hack for synology.nimloth.pl
-            //     if (stripos($result, '<form action="https://www.paypal.com/cgi-bin/webscr"') != 0)
-            //     {
-            //         $result = substr($result, 0, stripos($result, '<form action="https://www.paypal.com/cgi-bin/webscr"'));
-            //         $jsonDecoded = json_decode($result);
-            //     }
-            // }
+            $errorMessage = "Response from server is invalid (syntax error)";
         }
+        else if ($error != 0)
+        {
+            $errorMessage = "Response from server is invalid (unknown error: " . strval($error) .")";
+        }
+        
+        return $jsonDecoded;
+    }
 
+    //used in CronScript_compareCacheFiles.php
+    public function GetPackagesFromJsonResult($result)
+    { 
+        $jsonResult = $this->validateResult($result, $errorMessage);
+        return $this->parseJsonResponse($jsonResult, null, true);
+    }
+
+    private function parseJsonResponse($jsonDecoded, $requestedSource, $ignoreCachingIcons)
+    {
+        $packageList = array();
         if ($jsonDecoded == null)
         {
             return $packageList;
         }
-        
         if (isset($jsonDecoded->{'packages'}))
            $packages = $jsonDecoded->{'packages'};
         else
@@ -290,21 +301,6 @@ class PackageHelper
         return $packageList;
     }
 
-    //obsolete: move to DSMVersionList
-    public function GetVersionDetails($version, &$major, &$minor, &$build)
-    {
-        $pattern = '/^(?<major>\d)\.(?<minor>\d)(\.\d){0,1}\-(?<build>(\d){1,5})$/';
-        if (preg_match($pattern, $version, $matches) == 1)
-        {
-            $major = $matches['major'];
-            $minor = $matches['minor'];
-            $build = $matches['build'];
-            return true;
-            
-        }
-        return false;    
-    }
-
     static function CompareSearchResult($a, $b)
     {
         if ($a == $b)
@@ -314,6 +310,10 @@ class PackageHelper
         if ($a->packagesFoundCount > 0 && $b->packagesFoundCount == 0)
             return -1;
         else if ($a->packagesFoundCount == 0 && $b->packagesFoundCount > 0)
+            return 1;
+        else if ($a->errorMessage == null && $b->errorMessage != null)
+            return -1;
+        else if ($a->errorMessage != null && $b->errorMessage == null)
             return 1;
         else        
             return $indexA < $indexB ? -1 : 1;

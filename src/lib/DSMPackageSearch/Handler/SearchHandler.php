@@ -82,7 +82,7 @@ class SearchHandler extends AbstractHandler
             )
         {
             // $version = $_GET['version'];
-            if ($packageHelper->GetVersionDetails($selectedVersion, $major, $minor, $build) == false)
+            if ($DSMVersions->GetVersionDetails($selectedVersion, $major, $minor, $build) == false)
             {
                 $this->log->error("Invalid query: Could not identify DSM version", $data);
                 $output->setTemplate("html_general_error");
