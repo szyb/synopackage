@@ -82,13 +82,17 @@ urls:
       name: diablos-netzwerk
       url: http://spk.diablos-netzwerk.de/
       www: http://spk.diablos-netzwerk.de/?lang=en
+  - source:
+      name: page81
+      url: https://packages.page81.net/
+      www: https://packages.page81.net/
+  - source:
+      name: kastner
+      url: http://jaspr.kastner.wtf/
+      www: http://jaspr.kastner.wtf/
 
 
 unsupportedUrls:
-- source:
-    name: page81
-    url: https://packages.page81.net/
-    www: https://packages.page81.net/
 - source:
     name: jadahl
     url: http://www.jadahl.com
@@ -97,10 +101,7 @@ unsupportedUrls:
     name: brigittehelsen
     url: http://www.brigittehelsen.be/plexconnect/
     www: http://www.brigittehelsen.be/plexconnect/
-- source:
-    name: kastner
-    url: http://jaspr.kastner.wtf/
-    www: http://jaspr.kastner.wtf/
+
 
 
 
