@@ -115,14 +115,14 @@ urls:
       name: jadahl
       active: false
       disabledDate: 2018.06.10
-      disabledReason: The source does not provide valid SPK repository. Only manual install in DSM
+      disabledReason: This is not valid SPK repository and you cannot add this url to DSM. This source provides Domoticz packages for DSM and only manual download and install is available. 
       url: http://www.jadahl.com
       www: http://www.jadahl.com
   - source:
       name: brigittehelsen
       active: false
       disabledDate: 2018.05.04
-      disabledReason: SPK server is not working
+      disabledReason: This source is down for a while. It is not configured as valid SPK repository and probably forgotten.
       url: http://www.brigittehelsen.be/plexconnect/
       www: http://www.brigittehelsen.be/plexconnect/
 
