@@ -16,7 +16,7 @@ site:
     #in seconds
     curlTimeout: 15
     #leave empty if no proxy
-    curlProxy:
+    curlProxy: 127.0.0.1:4480
     #google analytics code (leave empty if not used)
     googleStatisticsCode: 
     donateUrls:

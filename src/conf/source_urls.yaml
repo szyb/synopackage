@@ -1,106 +1,130 @@
 urls:
   - source:
       name: synocommunity
+      active: true
       url: http://packages.synocommunity.com
       www: http://synocommunity.com
   - source:
       name: cphub
+      active: true
       url: https://www.cphub.net/
       www: https://www.cphub.net/
   - source:
       name: pcloadletter
+      active: true
       url: http://packages.pcloadletter.co.uk
       www: http://packages.pcloadletter.co.uk
   - source:
       name: hildinger
+      active: true
       url: http://www.hildinger.us/sspks/
       www: http://www.hildinger.us/sspks/
   - source:
       name: unzureichende
+      active: true
       url: http://spk.unzureichende.info/
       www: http://spk.unzureichende.info/
   - source:
       name: naefmarco
+      active: true
       url: http://spk.naefmarco.ch/spkrepo/packages/
       www: http://spk.naefmarco.ch/spkrepo/packages/
   - source:
       name: acmenet
+      active: true
       url: http://synology.acmenet.ru/
       www: http://synology.acmenet.ru/
   - source:
       name: emby
+      active: true
       url: https://synology.emby.media/
       www: https://emby.media/community/index.php?/forum/153-synology/
   
   - source:
       name: jdel
+      active: true
       url: https://packages.jdel.org/
       www: https://packages.jdel.org/
   - source:
       name: nas-mirror
+      active: true
       url: http://spk.nas-mirror.de/spkrepo/packages/
       www: http://spk.nas-mirror.de/spkrepo/packages/
   - source:
       name: dierkse
+      active: true
       url: http://syno.dierkse.nl/
       www: http://syno.dierkse.nl/
   - source:
       name: nimoloth
+      active: true
       url: http://synology.nimloth.pl/
       www: http://synology.nimloth.pl/
-  
   - source:
       name: cambier
+      active: true
       url: https://synology.cambier.org/
       www: https://synology.cambier.org/
   - source:
       name: synologyitalia
+      active: true
       url: https://spk.synologyitalia.com/
       www: https://spk.synologyitalia.com/
       customUserAgent: '"Mozilla/4.0 (compatible; MSIE 6.1; Windows XP) Synology"'
   - source:
       name: cytec
+      active: true
       url: http://cytec.us/spk/
       www: http://cytec.us/spk/
   - source:
       name: nzbusenet
+      active: true
       url: http://synology.nzbusenet.com/
       www: http://synology.nzbusenet.com/
   - source:
       name: filebot
+      active: true
       url: https://get.filebot.net/syno/
       www: https://get.filebot.net/syno/  
   - source:
       name: sysco
+      active: true
       url: http://synology.sysco.ch/
       www: http://synology.sysco.ch/ 
   - source:
       name: hofrichter
+      active: true
       url: https://www.hofrichter.at/sspks/
       www: https://www.hofrichter.at/sspks/
   - source:
       name: diablos-netzwerk
+      active: true
       url: http://spk.diablos-netzwerk.de/
       www: http://spk.diablos-netzwerk.de/?lang=en
   - source:
       name: page81
+      active: true
       url: https://packages.page81.net/
       www: https://packages.page81.net/
   - source:
       name: kastner
+      active: true
       url: http://jaspr.kastner.wtf/
       www: http://jaspr.kastner.wtf/
-
-
-unsupportedUrls:
-- source:
-    name: jadahl
-    url: http://www.jadahl.com
-    www: http://www.jadahl.com
-- source:
-    name: brigittehelsen
-    url: http://www.brigittehelsen.be/plexconnect/
-    www: http://www.brigittehelsen.be/plexconnect/
+  - source:
+      name: jadahl
+      active: false
+      disabledDate: 2018.06.10
+      disabledReason: The source does not provide valid SPK repository. Only manual install in DSM
+      url: http://www.jadahl.com
+      www: http://www.jadahl.com
+  - source:
+      name: brigittehelsen
+      active: false
+      disabledDate: 2018.05.04
+      disabledReason: SPK server is not working
+      url: http://www.brigittehelsen.be/plexconnect/
+      www: http://www.brigittehelsen.be/plexconnect/
 
 
 

@@ -7,6 +7,9 @@ class Source
     public $url;
     public $www;
     public $customUserAgent;
+    public $isActive;
+    public $disabledDate;
+    public $disabledReason;
 
     public function urlEncoded(){
         return urlencode($this->url);
