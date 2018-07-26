@@ -29,41 +29,7 @@ class PackageHelperTest extends TestCase
         }
     }
 
-    public function testGetVersionDetailsProperValue1()
-    {
-        $major = null;
-        $minor = null;
-        $build = null;
-        $result = $this->packageHelper->GetVersionDetails("6.1.3-15252", $major, $minor, $build);
-        $this->assertTrue($result);
-        $this->assertEquals(6, $major, "major");
-        $this->assertEquals(1, $minor, "minor");
-        $this->assertEquals(15252, $build, "build");
-    }
-
-    public function testGetVersionDetailsProperValue2()
-    {
-        $major = null;
-        $minor = null;
-        $build = null;
-        $result = $this->packageHelper->GetVersionDetails("4.0-1300", $major, $minor, $build);
-        $this->assertTrue($result);
-        $this->assertEquals(4, $major, "major");
-        $this->assertEquals(0, $minor, "minor");
-        $this->assertEquals(1300, $build, "build");
-    }
-
-    public function testGetVersionDetailsBadValue()
-    {
-        $major = null;
-        $minor = null;
-        $build = null;
-        $result = $this->packageHelper->GetVersionDetails("4.0x-1300", $major, $minor, $build);
-        $this->assertFalse($result);
-        $this->assertNull($major);
-        $this->assertNull($minor);
-        $this->assertNull($build);
-    }
+    
 
     public function testCompareResults1()
     {
@@ -173,17 +139,17 @@ class PackageHelperTest extends TestCase
         $this->assertEquals("http://packages.synocommunity.com", $source->url);
     }
 
-    public function testParseResponseNullValue()
+    public function testParseJsonResponseNullValue()
     {
         $response = null;
         $result = TestTools::InvokeMethod($this->packageHelper, 
-            "parseResponse", 
+            "parseJsonResponse", 
             array($response, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(0, count($result));
     }
 
-    public function testParseResponseGoodValue()
+    public function testParseJsonResponseGoodValue()
     {
         $response = null;
         $fullPath = __DIR__."/sample-files/goodResponse.json";
@@ -211,16 +177,19 @@ class PackageHelperTest extends TestCase
         $fh = fopen($fullPath, 'r');
         $response = fread($fh, filesize($fullPath));
         fclose($fh);
+
+        $result = $this->packageHelper->GetPackagesFromJsonResult($response);
+        // $jsonResult = json_decode($response, false);
     
-        $result = TestTools::InvokeMethod($this->packageHelper, 
-            "parseResponse", 
-            array($response, "http://packages.synocommunity.com", true));
+        // $result = TestTools::InvokeMethod($this->packageHelper, 
+        //     "parseJsonResponse", 
+        //     array($jsonResult, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(98, count($result));
 
     }
 
-    public function testParseResponseInvalidCharactersValue()
+    public function testParseJsonResponseInvalidCharactersValue()
     {
         $response = null;
         $fullPath = __DIR__."/sample-files/invalidCharactersResponse.json";
@@ -248,16 +217,18 @@ class PackageHelperTest extends TestCase
         $fh = fopen($fullPath, 'r');
         $response = fread($fh, filesize($fullPath));
         fclose($fh);
+
+        $result = $this->packageHelper->GetPackagesFromJsonResult($response);
     
-        $result = TestTools::InvokeMethod($this->packageHelper, 
-            "parseResponse", 
-            array($response, "http://packages.synocommunity.com", true));
+        // $result = TestTools::InvokeMethod($this->packageHelper, 
+        //     "parseJsonResponse", 
+        //     array($jsonResult, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(1, count($result));
                
     }
 
-    public function testParseResponseArrayOfPackages()
+    public function testParseJsonResponseArrayOfPackages()
     {
         $response = null;
         $fullPath = __DIR__."/sample-files/arrayOfPackagesResponse.json";
@@ -285,16 +256,19 @@ class PackageHelperTest extends TestCase
         $fh = fopen($fullPath, 'r');
         $response = fread($fh, filesize($fullPath));
         fclose($fh);
+
+        $result = $this->packageHelper->GetPackagesFromJsonResult($response);
+        // $jsonResult = json_decode($response, false);
     
-        $result = TestTools::InvokeMethod($this->packageHelper, 
-            "parseResponse", 
-            array($response, "http://packages.synocommunity.com", true));
+        // $result = TestTools::InvokeMethod($this->packageHelper, 
+        //     "parseJsonResponse", 
+        //     array($jsonResult, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(1, count($result));
                
     }
 
-    public function testParseResponseEncodedIcon()
+    public function testParseJsonResponseEncodedIcon()
     {
         $response = null;
         $fullPath = __DIR__."/sample-files/encodedIconResponse.json";
@@ -322,10 +296,13 @@ class PackageHelperTest extends TestCase
         $fh = fopen($fullPath, 'r');
         $response = fread($fh, filesize($fullPath));
         fclose($fh);
+
+        $result = $this->packageHelper->GetPackagesFromJsonResult($response);
+        // $jsonResult = json_decode($response, false);
     
-        $result = TestTools::InvokeMethod($this->packageHelper, 
-            "parseResponse", 
-            array($response, "http://packages.synocommunity.com", true));
+        // $result = TestTools::InvokeMethod($this->packageHelper, 
+        //     "parseJsonResponse", 
+        //     array($jsonResult, "http://packages.synocommunity.com", true));
         $this->assertNotNull($result);
         $this->assertEquals(3, count($result));
                
@@ -386,10 +363,6 @@ class PackageHelperTest extends TestCase
             , "Mozilla"
             , $errorMessageBeta);
 
-    
-        // $result = TestTools::InvokeMethod($this->packageHelper, 
-        //     "parseResponse", 
-        //     array($response, "http://packages.synocommunity.com"));
         $this->assertNotNull($result);
         $this->assertNull($errorMessage);
         $this->assertEquals(98, count($result));
