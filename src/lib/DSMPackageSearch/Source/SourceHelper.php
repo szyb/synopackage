@@ -50,31 +50,37 @@ class SourceHelper
              if ($key == "urls")
              {
                  $idx = 0;
+                 $idxDisabled = 0;
                  foreach ($value as $url)
                  {
-                     $this->sources[$idx] = new Source();
-                     $this->sources[$idx]->name = $url['source']['name'];
-                     $this->sources[$idx]->url = $url['source']['url'];
-                     $this->sources[$idx]->www = $url['source']['www'];
-                     if (isset($url['source']['customUserAgent'])==true)
-                         $this->sources[$idx]->customUserAgent = $url['source']['customUserAgent'];
-                     else
-                         $this->sources[$idx]->customUserAgent = null;
-                     $idx++;
-                 }
-             } else if ($key == "unsupportedUrls")
-             {
-                 $idx = 0;
-                 foreach ($value as $url)
-                 {
-                     $this->unsupportedUrls[$idx] = new Source();
-                     $this->unsupportedUrls[$idx]->name = $url['source']['name'];
-                     $this->unsupportedUrls[$idx]->url = $url['source']['url'];
-                     $this->unsupportedUrls[$idx]->www = $url['source']['www'];
-                     $this->unsupportedUrls[$idx]->customUserAgent = null;
-                     $idx++;
-                 }
-             }
+                    $isActive = $url['source']['active'];
+                    if ($isActive == true)
+                    {
+                        $this->sources[$idx] = new Source();
+                        $this->sources[$idx]->name = $url['source']['name'];
+                        $this->sources[$idx]->isActive = $isActive;
+                        $this->sources[$idx]->url = $url['source']['url'];
+                        $this->sources[$idx]->www = $url['source']['www'];
+                        if (isset($url['source']['customUserAgent'])==true)
+                            $this->sources[$idx]->customUserAgent = $url['source']['customUserAgent'];
+                        else
+                            $this->sources[$idx]->customUserAgent = null;
+                        $idx++;
+                    }
+                    else
+                    {
+                        $this->unsupportedUrls[$idxDisabled] = new Source();
+                        $this->unsupportedUrls[$idxDisabled]->name = $url['source']['name'];
+                        $this->unsupportedUrls[$idxDisabled]->isActive = $isActive;
+                        $this->unsupportedUrls[$idxDisabled]->disabledDate = $url['source']['disabledDate'];
+                        $this->unsupportedUrls[$idxDisabled]->disabledReason = $url['source']['disabledReason'];
+                        $this->unsupportedUrls[$idxDisabled]->url = $url['source']['url'];
+                        $this->unsupportedUrls[$idxDisabled]->www = $url['source']['www'];
+                        $this->unsupportedUrls[$idxDisabled]->customUserAgent = null;
+                        $idxDisabled++;
+                    }
+                }
+            }
          }
      }
 

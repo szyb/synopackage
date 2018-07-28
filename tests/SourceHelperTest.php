@@ -199,6 +199,13 @@ class SourceHelperTest extends TestCase
         $this->assertEquals("packages.synocommunity.com", $source->urlWithoutProtocol());
     }
 
+    public function testUrlWithoutProtocolNoProtocolDefined()
+    {
+        $source = new Source();
+        $source->url = "packages.synocommunity.com";
+        $this->assertEquals("packages.synocommunity.com", $source->urlWithoutProtocol());
+    }
+
     public function testValidateSourceNameProperName()
     {
         $config = new Config(__DIR__, $this->goodConfig);

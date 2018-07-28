@@ -103,4 +103,62 @@ class DSMVersionListTest extends TestCase
         $this->assertEquals(0, $selectedCount);
 
      }
+
+     public function testGetVersionDetailsProperValue1()
+    {
+        $major = null;
+        $minor = null;
+        $build = null;
+        $config = new Config(__DIR__, $this->goodConfig);
+        $versionList = new DSMVersionList($config);
+        $result = $versionList->GetVersionDetails("6.1.3-15252", $major, $minor, $build);
+        $this->assertTrue($result);
+        $this->assertEquals(6, $major, "major");
+        $this->assertEquals(1, $minor, "minor");
+        $this->assertEquals(15252, $build, "build");
+    }
+
+    public function testGetVersionDetailsProperValue2()
+    {
+        $major = null;
+        $minor = null;
+        $build = null;
+        $config = new Config(__DIR__, $this->goodConfig);
+        $versionList = new DSMVersionList($config);
+        $result = $versionList->GetVersionDetails("4.0-1300", $major, $minor, $build);
+        $this->assertTrue($result);
+        $this->assertEquals(4, $major, "major");
+        $this->assertEquals(0, $minor, "minor");
+        $this->assertEquals(1300, $build, "build");
+    }
+
+    public function testGetVersionDetailsBadValue()
+    {
+        $major = null;
+        $minor = null;
+        $build = null;
+        $config = new Config(__DIR__, $this->goodConfig);
+        $versionList = new DSMVersionList($config);
+        $result = $versionList->GetVersionDetails("4.0x-1300", $major, $minor, $build);
+        $this->assertFalse($result);
+        $this->assertNull($major);
+        $this->assertNull($minor);
+        $this->assertNull($build);
+    }
+
+    public function testGetVersionByBuildGoodValue()
+    {
+        $config = new Config(__DIR__, $this->goodConfig);
+        $versionList = new DSMVersionList($config);
+        $result = $versionList->GetVersionByBuild("8754");
+        $this->assertEquals("6.0.3-8754", $result);
+    }
+
+    public function testGetVersionByBuildBadValue()
+    {
+        $config = new Config(__DIR__, $this->goodConfig);
+        $versionList = new DSMVersionList($config);
+        $result = $versionList->GetVersionByBuild("1111");
+        $this->assertNull($result);
+    }
 }
