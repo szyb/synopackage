@@ -1,3 +1,9 @@
+version 1.1.0:
+  version: 1.1.0
+  date: 09.08.2018
+  new:
+    - Add new model from x19 series - RS1219+
+
 version 1.0.9:
   version: 1.0.9
   date: 28.07.2018
