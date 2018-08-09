@@ -166,6 +166,7 @@ x86_64:
         - RS815(RP)+
         - RS2416(RP)+
         - RS818+/RS818RP+
+        - RS1219+
     braswell:
         - DS216+
         - DS216+II
