@@ -2,7 +2,7 @@ site:
     testingOnly: false
     name: Synopackage.com
     theme: classic
-    latestVersion: 6.2-23739
+    latestVersion: 6.2.1-23824
     defaultModel: DS418play
     websiteVersion: 1.1.0
     useCache: true
