@@ -1,3 +1,9 @@
+version 1.1.1:
+  version: 1.1.1
+  date: 18.09.2018
+  new:
+    - Donation reminder banner
+
 version 1.1.0:
   version: 1.1.0
   date: 09.08.2018
