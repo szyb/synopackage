@@ -147,6 +147,21 @@ class SourceHelper
 
     public function GetUnsupportedSources()
     {
+        usort($this->unsupportedUrls, array("\DSMPackageSearch\Source\SourceHelper", "CompareUnsupportedSources"));
         return $this->unsupportedUrls;
+    }
+
+    static function CompareUnsupportedSources($a, $b)
+    {
+        if ($a == $b)
+            return 0;
+        if (isset($a->disabledDate) && !isset($b->disabledDate))
+            return -1;
+        else if (!isset($a->disabledDate) && isset($b->disabledDate))
+            return 1;
+        else if (strcmp($a->disabledDate, $b->disabledDate) == 0)
+            return strcmp($a->url, $b->url);
+        else
+            return -strcmp($a->disabledDate, $b->disabledDate);
     }
 }
